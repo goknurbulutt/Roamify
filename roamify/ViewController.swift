@@ -8,6 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +20,15 @@ class ViewController: UIViewController {
         
     }
 
-
+   
+    @IBAction func signUpButtonClicked(_ sender: Any) {
+    }
+    
+    
+    @IBAction func logInButtonClicked(_ sender: Any) {
+    }
+    
+    @IBAction func helpButtonClicked(_ sender: Any) {
+    }
 }
 
