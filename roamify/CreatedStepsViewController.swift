@@ -16,6 +16,18 @@ class CreatedStepsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action:#selector(addButtonClick))
+        
+        
+
+        
+    }
+    @objc func addButtonClick (){
+        performSegue(withIdentifier:"toAddMapKitVC", sender: nil)
+    }
+    
 
         
     }
@@ -23,4 +35,4 @@ class CreatedStepsViewController: UIViewController {
 
     
 
-}
+

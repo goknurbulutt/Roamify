@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomePageViewController: UIViewController {
+class HomePageViewController: UIViewController,UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -16,9 +16,25 @@ class HomePageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
 
+        
+        
         // Do any additional setup after loading the view.
     }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            if let searchText = searchBar.text {
+                // searchText, kullanıcının girdiği metni içerir
+                print("Arama metni: \(searchText)")
+                performSegue(withIdentifier:"toSearchRoutesVC", sender: self)
+                
+                
+                
+                
+                
+            }
+        }
     
 
     @IBAction func addNewRouteClicked(_ sender: Any) {

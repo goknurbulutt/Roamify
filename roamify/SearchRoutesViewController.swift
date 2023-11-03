@@ -14,6 +14,18 @@ class SearchRoutesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action:#selector(addButtonClick))
+        
+        
+
+        
+    }
+    @objc func addButtonClick (){
+        performSegue(withIdentifier:"toSearchStepVC", sender: nil)
+    }
+    
 
         
     }
@@ -21,4 +33,4 @@ class SearchRoutesViewController: UIViewController {
 
    
 
-}
+

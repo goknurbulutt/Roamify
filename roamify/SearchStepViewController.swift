@@ -15,10 +15,21 @@ class SearchStepViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action:#selector(addButtonClick))
+        
+        
+
+        
+    }
+    @objc func addButtonClick (){
+        performSegue(withIdentifier:"toMapKitVC", sender: nil)
+    }
+    
        
     }
     
 
     
 
-}
+

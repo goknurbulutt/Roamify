@@ -34,6 +34,7 @@ class SignUpViewController: UIViewController {
     
 
     @IBAction func doneClicked(_ sender: Any) {
+        performSegue(withIdentifier:"toHomePageVC", sender: nil)
         
     }
     
