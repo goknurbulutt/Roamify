@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TlH-YR-deg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYw-GO-ZCk">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -326,6 +326,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="My Routes">
                                     <fontDescription key="titleFontDescription" type="system" weight="heavy" pointSize="20"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="myRoutesClicked:" destination="BYw-GO-ZCk" eventType="touchUpInside" id="Mxp-xX-Xy9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1a-Ja-zDS">
                                 <rect key="frame" x="16" y="608" width="361" height="70"/>
@@ -337,6 +340,9 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" red="0.0037711819168180227" green="0.08652757853269577" blue="0.99970799684524536" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="addNewRouteClicked:" destination="BYw-GO-ZCk" eventType="touchUpInside" id="Xom-Qb-Pad"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NlI-bd-uK9"/>
@@ -353,6 +359,9 @@
                             <constraint firstItem="NlI-bd-uK9" firstAttribute="bottom" secondItem="4js-a5-2Gt" secondAttribute="bottom" constant="30" id="wbO-EL-8r3"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="NFp-wC-hfO" id="ntI-sf-Oyn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vnK-DI-hhn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -380,6 +389,9 @@
                             <constraint firstItem="bYJ-b5-X3Q" firstAttribute="bottom" secondItem="6Vb-K0-9Gk" secondAttribute="bottom" id="uWB-GL-gdA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchRoutesTableView" destination="6Vb-K0-9Gk" id="SFD-8o-TR0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="waD-1d-8CL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -487,6 +499,9 @@
                             <constraint firstItem="MZa-CK-duz" firstAttribute="top" secondItem="gQ0-u8-jZ4" secondAttribute="top" id="zIV-vH-uAq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="stepTableView" destination="MZa-CK-duz" id="ILR-9f-Bqj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1I-Z9-7gT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -514,6 +529,9 @@
                             <constraint firstItem="bvv-cj-iLJ" firstAttribute="trailing" secondItem="wjp-hA-6n1" secondAttribute="trailing" id="s1b-yI-5Nk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="wjp-hA-6n1" id="fmo-fc-dzc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cB1-6J-jrC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -609,6 +627,9 @@
                             <constraint firstItem="5y7-w8-Hfl" firstAttribute="top" secondItem="1Uf-0d-Esj" secondAttribute="top" id="vZU-oV-xQk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="seachStepTableView" destination="5y7-w8-Hfl" id="w2q-b9-PTd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wv7-du-z65" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -636,6 +657,9 @@
                             <constraint firstItem="KPk-SO-zzV" firstAttribute="top" secondItem="OEF-bU-mfx" secondAttribute="top" id="w0b-5F-WEo"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="KPk-SO-zzV" id="eY9-zg-IgW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vhq-JC-8ea" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -663,6 +687,9 @@
                             <constraint firstItem="oPP-GU-zZt" firstAttribute="trailing" secondItem="at0-tA-nHY" secondAttribute="trailing" id="n2l-ce-EfN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="myRoutesTableView" destination="at0-tA-nHY" id="0hb-PN-U6b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5S-be-Cw0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -833,7 +860,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="map.circle" catalog="system" width="32" height="32"/>
+        <image name="map.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
