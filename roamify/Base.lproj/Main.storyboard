@@ -295,8 +295,8 @@
                                 </constraints>
                                 <color key="tintColor" red="0.37497496604919434" green="0.60204261541366577" blue="0.90591245889663696" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="My Routes">
-                                    <fontDescription key="titleFontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="My Routes">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="myRoutesClicked:" destination="BYw-GO-ZCk" eventType="touchUpInside" id="Mxp-xX-Xy9"/>
@@ -308,10 +308,12 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="h2b-sI-ejb"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Add New Route" titleAlignment="automatic">
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" red="0.0037711819168180227" green="0.08652757853269577" blue="0.99970799684524536" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Add New Route">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <buttonConfiguration key="configuration" style="tinted" title="Add New Route">
+                                    <color key="baseForegroundColor" red="0.071208707988262177" green="0.34485197067260742" blue="0.82994365692138672" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="addNewRouteClicked:" destination="BYw-GO-ZCk" eventType="touchUpInside" id="Xom-Qb-Pad"/>
