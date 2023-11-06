@@ -26,6 +26,7 @@ class CreatedStepsViewController: UIViewController {
     }
     @objc func addButtonClick (){
         performSegue(withIdentifier:"toAddMapKitVC", sender: nil)
+        
     }
     
 
