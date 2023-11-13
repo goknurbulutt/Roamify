@@ -165,7 +165,7 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Log in"/>
                                 <connections>
                                     <action selector="logInClicked:" destination="PfQ-aI-4Ne" eventType="touchUpInside" id="uOt-fi-SAb"/>
-                                    <segue destination="BYw-GO-ZCk" kind="show" id="wMt-pL-btb"/>
+                                    <segue destination="BYw-GO-ZCk" kind="show" identifier="toHomePageVC2" id="wMt-pL-btb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -800,20 +800,20 @@
                                 <rect key="frame" x="108" y="94" width="176" height="32"/>
                                 <color key="tintColor" red="0.79607844350000001" green="0.64705884459999996" blue="0.67058825489999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="b9v-5u-3mO"/>
+                                    <constraint firstAttribute="height" constant="32" id="b9v-5u-3mO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="25"/>
                                 <color key="textColor" red="0.79607844350000001" green="0.64705884459999996" blue="0.67058825489999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="map.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3vb-mS-sHY">
-                                <rect key="frame" x="350" y="60" width="27" height="43.000000000000014"/>
+                                <rect key="frame" x="336" y="60" width="41" height="51"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CG4-qx-rDw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="DO9-7L-wQb" firstAttribute="top" secondItem="3vb-mS-sHY" secondAttribute="bottom" constant="83.666666666666657" id="4xR-gl-itK"/>
+                            <constraint firstItem="DO9-7L-wQb" firstAttribute="top" secondItem="3vb-mS-sHY" secondAttribute="bottom" constant="75.666666666666671" id="4xR-gl-itK"/>
                             <constraint firstItem="DO9-7L-wQb" firstAttribute="leading" secondItem="TYe-5h-U4o" secondAttribute="leading" id="6x4-Lq-P15"/>
                             <constraint firstItem="GlX-tK-1iz" firstAttribute="leading" secondItem="r0g-Vn-Agw" secondAttribute="leading" id="839-uI-AfR"/>
                             <constraint firstItem="CG4-qx-rDw" firstAttribute="bottom" secondItem="TFM-6f-WHT" secondAttribute="bottom" constant="140" id="87G-cm-NUk"/>
@@ -824,12 +824,12 @@
                             <constraint firstItem="r0g-Vn-Agw" firstAttribute="leading" secondItem="TFM-6f-WHT" secondAttribute="leading" id="GkX-cl-TJp"/>
                             <constraint firstItem="DO9-7L-wQb" firstAttribute="trailing" secondItem="TYe-5h-U4o" secondAttribute="trailing" id="LWj-s5-JD5"/>
                             <constraint firstItem="3vb-mS-sHY" firstAttribute="trailing" secondItem="HZA-0K-Est" secondAttribute="trailingMargin" id="Ljk-sX-amA"/>
-                            <constraint firstItem="3vb-mS-sHY" firstAttribute="top" secondItem="HZA-0K-Est" secondAttribute="topMargin" constant="-7.1054273576010019e-15" id="N85-qE-GF7"/>
+                            <constraint firstItem="3vb-mS-sHY" firstAttribute="top" secondItem="HZA-0K-Est" secondAttribute="topMargin" constant="-44" id="N85-qE-GF7"/>
                             <constraint firstItem="r0g-Vn-Agw" firstAttribute="top" secondItem="GlX-tK-1iz" secondAttribute="bottom" constant="40" id="PIW-ko-Urs"/>
                             <constraint firstItem="C7a-dk-Qgn" firstAttribute="leading" secondItem="GlX-tK-1iz" secondAttribute="leading" id="STh-gV-3kz"/>
                             <constraint firstItem="GlX-tK-1iz" firstAttribute="trailing" secondItem="r0g-Vn-Agw" secondAttribute="trailing" id="SYR-E1-eJm"/>
-                            <constraint firstItem="3vb-mS-sHY" firstAttribute="leading" secondItem="aoN-ac-L6O" secondAttribute="trailing" constant="66" id="UVP-fj-M28"/>
-                            <constraint firstItem="aoN-ac-L6O" firstAttribute="top" secondItem="CG4-qx-rDw" secondAttribute="top" constant="35" id="VxN-QF-HRO"/>
+                            <constraint firstItem="3vb-mS-sHY" firstAttribute="leading" secondItem="aoN-ac-L6O" secondAttribute="trailing" constant="52" id="UVP-fj-M28"/>
+                            <constraint firstItem="aoN-ac-L6O" firstAttribute="top" secondItem="CG4-qx-rDw" secondAttribute="top" constant="-9" id="VxN-QF-HRO"/>
                             <constraint firstItem="GlX-tK-1iz" firstAttribute="top" secondItem="C7a-dk-Qgn" secondAttribute="bottom" constant="40" id="WdU-Q7-qWV"/>
                             <constraint firstItem="C7a-dk-Qgn" firstAttribute="trailing" secondItem="GlX-tK-1iz" secondAttribute="trailing" id="ZPa-n1-g0S"/>
                             <constraint firstItem="r0g-Vn-Agw" firstAttribute="trailing" secondItem="TFM-6f-WHT" secondAttribute="trailing" id="gl2-uG-i38"/>
@@ -845,6 +845,7 @@
                         <outlet property="emailTextField" destination="C7a-dk-Qgn" id="fN4-gM-AuX"/>
                         <outlet property="nameTextField" destination="DO9-7L-wQb" id="XPg-SJ-kRm"/>
                         <outlet property="object" destination="3vb-mS-sHY" id="ZNe-dy-khN"/>
+                        <outlet property="passwordAgainTextField" destination="r0g-Vn-Agw" id="F73-3j-oUt"/>
                         <outlet property="passwordTextField" destination="GlX-tK-1iz" id="2RM-1s-VPt"/>
                         <outlet property="signUpLabel" destination="aoN-ac-L6O" id="NNZ-ML-PHs"/>
                         <outlet property="surnameTextField" destination="TYe-5h-U4o" id="Rcx-Y9-faf"/>
@@ -875,7 +876,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="n3R-DU-IXm"/>
-        <segue reference="1nq-31-6gY"/>
+        <segue reference="wMt-pL-btb"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="map.circle" catalog="system" width="128" height="123"/>
