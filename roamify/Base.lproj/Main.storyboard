@@ -147,11 +147,11 @@
                                 <buttonConfiguration key="configuration" style="gray" title="I forgot my password"/>
                                 <connections>
                                     <action selector="forgotPasswordClicked:" destination="PfQ-aI-4Ne" eventType="touchUpInside" id="Tzz-Cz-zZ1"/>
-                                    <segue destination="TlH-YR-deg" kind="show" id="npr-hH-PcR"/>
+                                    <segue destination="TlH-YR-deg" kind="presentation" modalPresentationStyle="fullScreen" id="npr-hH-PcR"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="map.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0QO-Iu-A2O">
-                                <rect key="frame" x="349" y="94.666666666666657" width="28" height="42.666666666666657"/>
+                                <rect key="frame" x="349" y="94.666666666666657" width="28" height="42.666666666666686"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43.999999999999993" id="Ek0-EM-dBi"/>
                                 </constraints>
@@ -208,7 +208,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H9N-ia-z3K">
-                                <rect key="frame" x="16" y="223" width="361" height="50"/>
+                                <rect key="frame" x="16" y="179" width="361" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="zv4-MA-kfs"/>
                                 </constraints>
@@ -216,7 +216,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSd-GZ-0Ua">
-                                <rect key="frame" x="16" y="313" width="361" height="74"/>
+                                <rect key="frame" x="16" y="269" width="361" height="74"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="74" id="qEn-Eh-6v3"/>
                                 </constraints>
@@ -235,11 +235,11 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="sendLinkClicked:" destination="TlH-YR-deg" eventType="touchUpInside" id="SSu-st-050"/>
-                                    <segue destination="BYw-GO-ZCk" kind="show" id="wX1-nZ-Lhl"/>
+                                    <segue destination="PfQ-aI-4Ne" kind="presentation" identifier="toPRV" modalPresentationStyle="fullScreen" id="1o5-hJ-TNc"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="map.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eaj-oU-sSo">
-                                <rect key="frame" x="349" y="104" width="28" height="43"/>
+                                <rect key="frame" x="349" y="60" width="28" height="43.000000000000014"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44.333333333333343" id="mCF-Zs-PHL"/>
                                 </constraints>
@@ -274,7 +274,7 @@
             <objects>
                 <viewController id="BYw-GO-ZCk" customClass="HomePageViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u9k-vO-2Bi">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" misplaced="YES" placeholder="Which route are you looking for?" translatesAutoresizingMaskIntoConstraints="NO" id="NFp-wC-hfO">
@@ -288,7 +288,7 @@
                                 </connections>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4js-a5-2Gt">
-                                <rect key="frame" x="16" y="718" width="361" height="70"/>
+                                <rect key="frame" x="16" y="683" width="361" height="70"/>
                                 <color key="backgroundColor" red="0.77372592687606812" green="0.92893069982528687" blue="0.94489496946334839" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="rVF-UK-uQE"/>
@@ -304,7 +304,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1a-Ja-zDS">
-                                <rect key="frame" x="16" y="608" width="361" height="70"/>
+                                <rect key="frame" x="16" y="573" width="361" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="h2b-sI-ejb"/>
                                 </constraints>
@@ -350,11 +350,11 @@
             <objects>
                 <viewController id="J8z-Vu-lbp" customClass="SearchRoutesViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NT3-OW-6wh">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6Vb-K0-9Gk">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="724"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -382,11 +382,11 @@
             <objects>
                 <viewController id="DXT-ST-9Wg" customClass="AddRouteViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UVe-rL-83Z">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Route Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EjT-EG-vWi">
-                                <rect key="frame" x="16" y="223" width="361" height="50"/>
+                                <rect key="frame" x="16" y="179" width="361" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="1p6-KG-wwa"/>
                                 </constraints>
@@ -394,7 +394,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRC-wa-GoJ">
-                                <rect key="frame" x="16" y="343" width="361" height="50"/>
+                                <rect key="frame" x="16" y="299" width="361" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="hge-7R-eIU"/>
                                 </constraints>
@@ -407,7 +407,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cYZ-hA-5gl">
-                                <rect key="frame" x="16" y="584" width="361" height="189"/>
+                                <rect key="frame" x="16" y="549" width="361" height="189"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="189" id="1D2-hB-Wlx"/>
@@ -425,7 +425,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="map.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="A2t-2P-Jlh">
-                                <rect key="frame" x="349" y="104" width="28" height="43"/>
+                                <rect key="frame" x="349" y="60" width="28" height="43.000000000000014"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44.333333333333343" id="OWb-PG-N24"/>
                                 </constraints>
@@ -464,11 +464,11 @@
             <objects>
                 <viewController id="fpI-qp-Yu5" customClass="CreatedStepsViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NvY-Ka-qJx">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MZa-CK-duz">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="724"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -497,11 +497,11 @@
             <objects>
                 <viewController id="oQ2-Rx-fa3" customClass="AddMapKitViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U0g-7U-0My">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wjp-hA-6n1">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="724"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                         </subviews>
@@ -529,11 +529,11 @@
             <objects>
                 <viewController id="b9i-2f-Xd9" customClass="StepDetailsViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FYp-0c-tbA">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Step Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RHR-Rd-FSd">
-                                <rect key="frame" x="16" y="223" width="361" height="50"/>
+                                <rect key="frame" x="16" y="179" width="361" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="8Xm-ph-CC0"/>
                                 </constraints>
@@ -541,7 +541,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="If there is a note you would like to leave for this step, write it down." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="phT-Mu-kMf">
-                                <rect key="frame" x="16" y="313" width="361" height="50"/>
+                                <rect key="frame" x="16" y="269" width="361" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Ico-pN-s3C"/>
                                 </constraints>
@@ -558,7 +558,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="map.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hNK-yz-vhT">
-                                <rect key="frame" x="349" y="104" width="28" height="43"/>
+                                <rect key="frame" x="349" y="60" width="28" height="43.000000000000014"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44.333333333333329" id="Py0-1J-X5w"/>
                                 </constraints>
@@ -597,11 +597,11 @@
             <objects>
                 <viewController id="gVg-UZ-IcI" customClass="SearchStepViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y3w-uz-Dm5">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5y7-w8-Hfl">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="724"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -629,11 +629,11 @@
             <objects>
                 <viewController id="vJL-Lu-WM3" customClass="MapKitViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7R5-LC-n8r">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KPk-SO-zzV">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="724"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                         </subviews>
@@ -660,11 +660,11 @@
             <objects>
                 <viewController id="osY-oQ-btA" customClass="MyRoutesViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FTb-ai-RjT">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="at0-tA-nHY">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="724"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -877,6 +877,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="n3R-DU-IXm"/>
         <segue reference="wMt-pL-btb"/>
+        <segue reference="1o5-hJ-TNc"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="map.circle" catalog="system" width="128" height="123"/>
