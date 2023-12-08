@@ -71,6 +71,7 @@ class SignUpViewController: UIViewController {
                             print("Hata: \(error.localizedDescription)")
                         } else {
                             // Başarıyla kaydedildi, giriş sayfasına yönlendir
+                            
                             self.performSegue(withIdentifier: "toHomePageVC", sender: nil)
                         }
                     })
