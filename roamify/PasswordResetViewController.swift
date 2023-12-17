@@ -26,6 +26,7 @@ class PasswordResetViewController: UIViewController {
     }
     
     @IBAction func forgotPasswordClicked(_ sender: Any) {
+        performSegue(withIdentifier: "toVerificationVC", sender: nil)
     }
     
     
@@ -33,23 +34,33 @@ class PasswordResetViewController: UIViewController {
         
         
         if emailTextField.text != "" && passwordTextField.text != "" {
-            // giriş yapma işlemi yap
-            
-            Auth.auth().signIn(withEmail: emailTextField.text! , password: passwordTextField.text!){
-                (authdataresult, error) in
-                if error != nil{
-                    self.errorMessage(titleInput: "Hata!", messageInput: error?.localizedDescription ?? "Hata ALdınız, Lütfen Tekrar  Deneyiniz")
-                }else{
-                    self.performSegue(withIdentifier: "toHomePageVC2", sender: nil)
+                let email = emailTextField.text!
+                
+                // E-postanın Firebase'de kayıtlı olup olmadığını kontrol et
+                Auth.auth().fetchSignInMethods(forEmail: email) { (methods, error) in
+                    if let error = error {
+                        // E-posta kontrolünde bir hata oluştu
+                        self.errorMessage(titleInput: "Hata!", messageInput: error.localizedDescription)
+                    } else if methods == nil || methods!.isEmpty {
+                        // Herhangi bir giriş yöntemi bulunamadı, yani kullanıcı mevcut değil
+                        self.errorMessage(titleInput: "Hata!", messageInput: "Bu e-posta ile kayıtlı bir kullanıcı bulunamadı. Lütfen kayıt olun.")
+                    } else {
+                        // Kullanıcı mevcut, giriş yapma işlemine devam et
+                        Auth.auth().signIn(withEmail: email, password: self.passwordTextField.text!) { (authDataResult, signInError) in
+                            if let signInError = signInError {
+                                // Giriş yapma işlemi sırasında bir hata oluştu
+                                self.errorMessage(titleInput: "Hata!", messageInput: signInError.localizedDescription)
+                            } else {
+                                // Giriş başarılı
+                                self.performSegue(withIdentifier: "toHomePageVC2", sender: nil)
+                            }
+                        }
+                    }
                 }
+            } else {
+                errorMessage(titleInput: "Hata!", messageInput: "E-posta ve parola giriniz.")
             }
-        }else {
-            errorMessage(titleInput: "Hata!", messageInput: "Email Ve Parola Giriniz!")
         }
-        
-        
-        
-    }
     func errorMessage(titleInput: String, messageInput: String){
         let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: .alert
         )

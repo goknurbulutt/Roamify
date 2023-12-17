@@ -147,7 +147,7 @@
                                 <buttonConfiguration key="configuration" style="gray" title="I forgot my password"/>
                                 <connections>
                                     <action selector="forgotPasswordClicked:" destination="PfQ-aI-4Ne" eventType="touchUpInside" id="Tzz-Cz-zZ1"/>
-                                    <segue destination="TlH-YR-deg" kind="presentation" modalPresentationStyle="fullScreen" id="npr-hH-PcR"/>
+                                    <segue destination="TlH-YR-deg" kind="presentation" identifier="toVerificationVC" modalPresentationStyle="fullScreen" id="npr-hH-PcR"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="map.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0QO-Iu-A2O">
@@ -317,7 +317,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="addNewRouteClicked:" destination="BYw-GO-ZCk" eventType="touchUpInside" id="Xom-Qb-Pad"/>
-                                    <segue destination="DXT-ST-9Wg" kind="show" id="4LQ-Yd-ePH"/>
+                                    <segue destination="DXT-ST-9Wg" kind="show" id="AlT-01-aU9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -457,7 +457,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ymO-nR-KXS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="907.63358778625945" y="1282.3943661971832"/>
+            <point key="canvasLocation" x="1834.3511450381679" y="1282.3943661971832"/>
         </scene>
         <!--Created Steps View Controller-->
         <scene sceneID="e4H-3W-Txk">
@@ -490,7 +490,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1I-Z9-7gT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1749" y="1282"/>
+            <point key="canvasLocation" x="2675.5725190839694" y="1281.6901408450706"/>
         </scene>
         <!--Add Map Kit View Controller-->
         <scene sceneID="rRh-cn-dqk">
@@ -517,12 +517,12 @@
                     <navigationItem key="navigationItem" id="fTW-GY-2az"/>
                     <connections>
                         <outlet property="mapView" destination="wjp-hA-6n1" id="fmo-fc-dzc"/>
-                        <segue destination="b9i-2f-Xd9" kind="show" id="PAC-H7-Sfn"/>
+                        <segue destination="b9i-2f-Xd9" kind="show" identifier="toStepDetailsVC" id="rMY-M5-elD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cB1-6J-jrC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2656" y="1282"/>
+            <point key="canvasLocation" x="3678.6259541984732" y="1281.6901408450706"/>
         </scene>
         <!--Step Details View Controller-->
         <scene sceneID="Wfo-vL-3Bz">
@@ -590,7 +590,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hic-wu-UNh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3577.8625954198474" y="1281.6901408450706"/>
+            <point key="canvasLocation" x="4504.580152671756" y="1281.6901408450706"/>
         </scene>
         <!--Search Step View Controller-->
         <scene sceneID="3gg-Pu-DcF">

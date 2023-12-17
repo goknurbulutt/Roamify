@@ -13,32 +13,25 @@ class AddMapKitViewController: UIViewController,MKMapViewDelegate, CLLocationMan
     
     @IBOutlet weak var mapView: MKMapView!
     let db = Firestore.firestore()
-        var selectedRouteName: String?
-    var routeName: String?
-    var stepName: String?
+        var routeName: String?
+        var stepName: String?
 
         override func viewDidLoad() {
             super.viewDidLoad()
-            title = selectedRouteName
-            
-            guard let selectedRouteName = selectedRouteName, !selectedRouteName.isEmpty else {
-                print("Hata: selectedRouteName boş veya nil.")
-                // Hata ile başa çıkın veya kullanıcıya bir uyarı gösterin
+            title = routeName
+
+            guard let routeName = routeName, !routeName.isEmpty else {
+                print("Hata: routeName boş ")
+                
                 return
             }
 
-            // Şimdi, selectedRouteName'i kullanarak Firestore'dan veri çekebilirsiniz
-            db.collection("routes").document(selectedRouteName).getDocument { snapshot, error in
-                // Mevcut kodunuz...
-            }
+            db.collection("routes").document(routeName).getDocument { [weak self] snapshot, error in
+                guard let self = self else { return }
 
-
-            // Firebase'den harita verilerini çekebilirsin
-            db.collection("routes").document(selectedRouteName ?? "").getDocument { snapshot, error in
                 if let error = error {
                     print("Error fetching map data: \(error.localizedDescription)")
                 } else {
-                    // Snapshot'tan harita verilerini çek ve haritaya pin ekle
                     if let mapData = snapshot?.data(),
                        let latitude = mapData["latitude"] as? Double,
                        let longitude = mapData["longitude"] as? Double {
@@ -47,59 +40,79 @@ class AddMapKitViewController: UIViewController,MKMapViewDelegate, CLLocationMan
                     }
                 }
             }
-        }
-    
-    
 
-        // Haritada yer eklemek için bir fonksiyon ekleyebilirsin
+            let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+            mapView.addGestureRecognizer(longPressGesture)
+        }
+
         func addPinToMap(_ location: CLLocationCoordinate2D) {
             let annotation = MKPointAnnotation()
             annotation.coordinate = location
             mapView.addAnnotation(annotation)
         }
-    
-    func showAlert(message: String) {
-                let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert.addAction(okAction)
-                present(alert, animated: true, completion: nil)
+
+        @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer) {
+            if gestureRecognizer.state == .began {
+                let touchPoint = gestureRecognizer.location(in: mapView)
+                let coordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+                addPinToMap(coordinate)
+
+                // Firebase'e adımı kaydet
+                saveStepToFirebase(coordinate)
             }
-    
-    @objc func addButtonClick() {
-        // Eğer routeName boş veya nil ise kullanıcıya hata mesajı göster
-        guard let routeName = routeName, !routeName.isEmpty else {
-            showAlert(message: "Route name cannot be empty.")
-            return
         }
 
-        // Firestore'a rota adını ekle
-        db.collection("routes").document(routeName).setData(["routeName": routeName]) { error in
-            if let error = error {
-                print("Error adding route: \(error.localizedDescription)")
-                // Hata durumunda kullanıcıya bilgi ver
-                self.showAlert(message: "Error adding route. Please try again.")
-            } else {
-                print("Route added successfully to Firestore")
-                // Başarı durumunda kullanıcıya bilgi ver
-                self.showAlert(message: "Route added successfully.")
-                
-                // Firestore'a rota adını ekledikten sonra segue'yi başlat
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "toAddMapKitVC", sender: routeName)
+        func saveStepToFirebase(_ coordinate: CLLocationCoordinate2D) {
+            guard let stepName = stepName, !stepName.isEmpty else {
+                showAlert(message: "Step name cannot be empty.")
+                return
+            }
+
+            let stepData: [String: Any] = [
+                "latitude": coordinate.latitude,
+                "longitude": coordinate.longitude,
+                "stepName": stepName
+            ]
+
+            // Firestore'a adım verilerini kaydet
+            db.collection("routes").document(routeName ?? "").collection("steps").document(stepName).setData(stepData) { [weak self] error in
+                guard let self = self else { return }
+
+                if let error = error {
+                    print("Error saving step data: \(error.localizedDescription)")
+                    self.showAlert(message: "Error saving step data. Please try again.")
+                } else {
+                    print("Step data saved successfully to Firestore")
+
+                    // Firestore'dan adımın bilgilerini al ve segue'i başlat
+                    self.showStepDetails(for: coordinate)
                 }
             }
         }
+    
+    func addPinToMapp(_ location: CLLocationCoordinate2D) {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = location
+        mapView.addAnnotation(annotation)
     }
 
 
-    // prepare fonksiyonunu güncelle
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toAddMapKitVC" {
-            if let addMapKitVC = segue.destination as? AddMapKitViewController,
-               let routeName = sender as? String {
-                addMapKitVC.routeName = routeName
+        func showStepDetails(for coordinate: CLLocationCoordinate2D) {
+            // Segue'i başlat
+            performSegue(withIdentifier: "toStepDetailsVC", sender: ["latitude": coordinate.latitude, "longitude": coordinate.longitude, "stepName": stepName])
+        }
+
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "toStepDetailsVC", let stepDetailsVC = segue.destination as? StepDetailsViewController,
+               let stepDetails = sender as? [String: Any] {
+                stepDetailsVC.stepDetails = stepDetails
             }
         }
-    }
 
+        func showAlert(message: String) {
+            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        }
     }

@@ -19,100 +19,94 @@ class CreatedStepsViewController: UIViewController, UITableViewDataSource, UITab
         override func viewDidLoad() {
             super.viewDidLoad()
             title = routeName
+            
 
-                    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonClick))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonClick))
 
-                    // Firebase'den adım verilerini çekebilirsin
-                    db.collection("routes").document(routeName ?? "").collection("steps").getDocuments { snapshot, error in
-                        if let error = error {
-                            print("Error fetching steps: \(error.localizedDescription)")
-                        } else {
-                            // Snapshot'tan adım verilerini çek ve steps dizisine ekle
-                            for document in snapshot!.documents {
-                                let stepData = document.data()
-                                if let name = stepData["stepName"] as? String, let note = stepData["note"] as? String {
-                                    self.addStep(name: name, note: note)
-                                }
-                            }
-                            self.stepTableView.reloadData()
+            // Firebase'den adım verilerini çekebilirsin
+            db.collection("routes").document(routeName ?? "").collection("steps").getDocuments { snapshot, error in
+                if let error = error {
+                    print("Error fetching steps: \(error.localizedDescription)")
+                } else {
+                    // Snapshot'tan adım verilerini çek ve steps dizisine ekle
+                    for document in snapshot!.documents {
+                        let stepData = document.data()
+                        if let name = stepData["stepName"] as? String, let note = stepData["note"] as? String {
+                            self.addStep(name: name, note: note)
                         }
                     }
+                    self.stepTableView.reloadData()
                 }
-
-                // UITableViewDataSource ve UITableViewDelegate fonksiyonları
-                func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-                    return steps.count
-                }
-
-                func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "StepCell", for: indexPath)
-                    let step = steps[indexPath.row]
-                    cell.textLabel?.text = step.name
-                    cell.detailTextLabel?.text = step.note
-                    return cell
-                }
-
-                // Step eklemek için bir fonksiyon ekleyebilirsin
-                func addStep(name: String, note: String) {
-                    let step = Step(name: name, note: note)
-                    steps.append(step)
-                }
-
-                // @objc func addButtonClick() {
-                //     performSegue(withIdentifier: "toAddMapKitVC", sender: nil)
-                // }
-
-                // Eğer toAddMapKitVC sayfasına geçiş yapılacaksa, bu fonksiyon kullanılabilir.
-    // Eğer toAddMapKitVC sayfasına geçiş yapılacaksa, bu fonksiyon kullanılabilir.
-    @objc func addButtonClick() {
-        // Eğer routeName boş veya nil ise kullanıcıya hata mesajı göster
-        guard let routeName = routeName, !routeName.isEmpty else {
-            showAlert(message: "Route name cannot be empty.")
-            return
+            }
         }
 
-        let alertController = UIAlertController(title: "Add Step", message: "Enter step name", preferredStyle: .alert)
-
-        alertController.addTextField { textField in
-            textField.placeholder = "Step Name"
+        // UITableViewDataSource ve UITableViewDelegate fonksiyonları
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return steps.count
         }
 
-        let addAction = UIAlertAction(title: "Add", style: .default) { [weak self] _ in
-            guard let self = self, let stepName = alertController.textFields?.first?.text, !stepName.isEmpty else {
-                self?.showAlert(message: "Step name cannot be empty.")
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "StepCell", for: indexPath)
+            let step = steps[indexPath.row]
+            cell.textLabel?.text = step.name
+            cell.detailTextLabel?.text = step.note
+            return cell
+        }
+
+        // Step eklemek için bir fonksiyon ekleyebilirsin
+        func addStep(name: String, note: String) {
+            let step = Step(name: name, note: note)
+            steps.append(step)
+        }
+
+        @objc func addButtonClick() {
+            // Eğer routeName boş veya nil ise kullanıcıya hata mesajı göster
+            guard let routeName = routeName, !routeName.isEmpty else {
+                showAlert(message: "Route name cannot be empty.")
                 return
             }
 
-            // Eğer adım adı alındıysa, harita sayfasına yönlendir
-            self.performSegue(withIdentifier: "toAddMapKitVC", sender: ["routeName": routeName, "stepName": stepName])
-        }
+            let alertController = UIAlertController(title: "Add Step", message: "Enter step name", preferredStyle: .alert)
 
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-
-        alertController.addAction(addAction)
-        alertController.addAction(cancelAction)
-
-        present(alertController, animated: true, completion: nil)
-    }
-
-    // prepare fonksiyonunu güncelle
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toAddMapKitVC" {
-            if let addMapKitVC = segue.destination as? AddMapKitViewController,
-               let data = sender as? [String: String],
-               let routeName = data["routeName"],
-               let stepName = data["stepName"] {
-                addMapKitVC.routeName = routeName
-                addMapKitVC.stepName = stepName
+            alertController.addTextField { textField in
+                textField.placeholder = "Step Name"
             }
+
+            let addAction = UIAlertAction(title: "Add", style: .default) { [weak self] _ in
+                guard let self = self, let stepName = alertController.textFields?.first?.text, !stepName.isEmpty else {
+                    self?.showAlert(message: "Step name cannot be empty.")
+                    return
+                }
+
+                // Eğer adım adı alındıysa, harita sayfasına yönlendir
+                self.performSegue(withIdentifier: "toAddMapKitVC", sender: ["routeName": routeName, "stepName": stepName])
+            }
+
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+            alertController.addAction(addAction)
+            alertController.addAction(cancelAction)
+
+            present(alertController, animated: true, completion: nil)
         }
-    }
 
-
-                func showAlert(message: String) {
-                    let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                    alert.addAction(okAction)
-                    present(alert, animated: true, completion: nil)
+        // prepare fonksiyonunu güncelle
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "toAddMapKitVC" {
+                if let addMapKitVC = segue.destination as? AddMapKitViewController,
+                   let data = sender as? [String: String],
+                   let routeName = data["routeName"],
+                   let stepName = data["stepName"] {
+                    addMapKitVC.routeName = routeName
+                    addMapKitVC.stepName = stepName
                 }
             }
+        }
+
+        func showAlert(message: String) {
+            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        }
+    }

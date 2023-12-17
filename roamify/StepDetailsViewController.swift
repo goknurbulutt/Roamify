@@ -10,6 +10,8 @@ import Firebase
 
 class StepDetailsViewController: UIViewController {
     
+    var stepDetails: [String: Any]?
+    
     @IBOutlet weak var object: UIImageView!
     
     @IBOutlet weak var stepNameTextField: UITextField!
@@ -19,10 +21,12 @@ class StepDetailsViewController: UIViewController {
 
         override func viewDidLoad() {
             super.viewDidLoad()
-            // Eğer bir resim göstermek istiyorsanız, aşağıda resmi yükleyebilirsiniz
-            // object.image = UIImage(named: "your_image_name")
+            
         }
+    
+    
 
+    
         @IBAction func doneClicked(_ sender: UIButton) {
             if let stepName = stepNameTextField.text, let note = stepNoteTextField.text {
                 // Firebase'e adım detaylarını ekleyebilirsiniz

@@ -62,7 +62,7 @@ class SignUpViewController: UIViewController {
                 if let error = error {
                     self.errorMessage(titleInput: "Hata", messageInput: error.localizedDescription)
                 } else {
-                    // Firebase'e başarıyla kaydedildi, ad ve soyadı ekleyebilirsiniz
+                    
                     let user = Auth.auth().currentUser
                     let changeRequest = user?.createProfileChangeRequest()
                     changeRequest?.displayName = "\(name) \(surname)"
