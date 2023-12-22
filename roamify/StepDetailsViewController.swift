@@ -28,6 +28,8 @@ class StepDetailsViewController: UIViewController {
 
     
         @IBAction func doneClicked(_ sender: UIButton) {
+            
+           
             if let stepName = stepNameTextField.text, let note = stepNoteTextField.text {
                 // Firebase'e adım detaylarını ekleyebilirsiniz
                 db.collection("steps").addDocument(data: ["stepName": stepName, "note": note]) { error in

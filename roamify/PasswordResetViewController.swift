@@ -23,6 +23,7 @@ class PasswordResetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
     }
     
     @IBAction func forgotPasswordClicked(_ sender: Any) {
@@ -34,39 +35,39 @@ class PasswordResetViewController: UIViewController {
         
         
         if emailTextField.text != "" && passwordTextField.text != "" {
-                let email = emailTextField.text!
                 
                 // E-postanın Firebase'de kayıtlı olup olmadığını kontrol et
-                Auth.auth().fetchSignInMethods(forEmail: email) { (methods, error) in
-                    if let error = error {
-                        // E-posta kontrolünde bir hata oluştu
-                        self.errorMessage(titleInput: "Hata!", messageInput: error.localizedDescription)
-                    } else if methods == nil || methods!.isEmpty {
-                        // Herhangi bir giriş yöntemi bulunamadı, yani kullanıcı mevcut değil
-                        self.errorMessage(titleInput: "Hata!", messageInput: "Bu e-posta ile kayıtlı bir kullanıcı bulunamadı. Lütfen kayıt olun.")
+                Auth.auth().signIn(withEmail: emailTextField.text!, password: self.passwordTextField.text!) { (authDataResult, signInError) in
+                    if let signInError = signInError {
+                        // Giriş yapma işlemi sırasında bir hata oluştu
+                        self.showErrorAlert(title: "Hata!", message: signInError.localizedDescription)
                     } else {
-                        // Kullanıcı mevcut, giriş yapma işlemine devam et
-                        Auth.auth().signIn(withEmail: email, password: self.passwordTextField.text!) { (authDataResult, signInError) in
-                            if let signInError = signInError {
-                                // Giriş yapma işlemi sırasında bir hata oluştu
-                                self.errorMessage(titleInput: "Hata!", messageInput: signInError.localizedDescription)
-                            } else {
-                                // Giriş başarılı
-                                self.performSegue(withIdentifier: "toHomePageVC2", sender: nil)
-                            }
+                        // Giriş başarılı, kullanıcıyı yönlendir
+                        if let user = authDataResult?.user {
+                            // Kullanıcı ID'sini consola yazdır
+                            print("Kullanıcı ID:", user.uid)
                         }
+                        self.performSegue(withIdentifier: "toHomePageVC2", sender: nil)
                     }
                 }
             } else {
                 errorMessage(titleInput: "Hata!", messageInput: "E-posta ve parola giriniz.")
             }
         }
-    func errorMessage(titleInput: String, messageInput: String){
-        let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: .alert
-        )
-        let okButton = UIAlertAction(title: "OK", style: .default , handler: nil)
-        alert.addAction(okButton)
-        self.present(alert, animated: true, completion: nil)
-        
-    }
-}
+
+            func showErrorAlert(title: String, message: String) {
+                let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(okButton)
+
+                // Bu view controller'dan alert'ı göster
+                self.present(alert, animated: true, completion: nil)
+            }
+
+            func errorMessage(titleInput: String, messageInput: String){
+                let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: .alert)
+                let okButton = UIAlertAction(title: "OK", style: .default , handler: nil)
+                alert.addAction(okButton)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }

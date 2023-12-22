@@ -151,7 +151,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="map.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0QO-Iu-A2O">
-                                <rect key="frame" x="349" y="94.666666666666657" width="28" height="42.666666666666657"/>
+                                <rect key="frame" x="349" y="94.666666666666657" width="28" height="42.666666666666686"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43.999999999999993" id="Ek0-EM-dBi"/>
                                 </constraints>
@@ -165,7 +165,6 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Log in"/>
                                 <connections>
                                     <action selector="logInClicked:" destination="PfQ-aI-4Ne" eventType="touchUpInside" id="uOt-fi-SAb"/>
-                                    <segue destination="BYw-GO-ZCk" kind="show" identifier="toHomePageVC2" id="wMt-pL-btb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -193,6 +192,7 @@
                         <outlet property="emailTextField" destination="THo-Nv-hh1" id="7To-7P-7Q1"/>
                         <outlet property="object" destination="0QO-Iu-A2O" id="dtu-XX-m8Z"/>
                         <outlet property="passwordTextField" destination="eZZ-4F-SLo" id="Sll-7t-PHD"/>
+                        <segue destination="BYw-GO-ZCk" kind="show" identifier="toHomePageVC2" id="TAg-Df-vWM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ugv-XT-u0t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -317,7 +317,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="addNewRouteClicked:" destination="BYw-GO-ZCk" eventType="touchUpInside" id="Xom-Qb-Pad"/>
-                                    <segue destination="DXT-ST-9Wg" kind="show" id="AlT-01-aU9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -339,6 +338,7 @@
                     <connections>
                         <outlet property="searchBar" destination="NFp-wC-hfO" id="ntI-sf-Oyn"/>
                         <segue destination="J8z-Vu-lbp" kind="show" identifier="toSearchRoutesVC" id="FIj-O7-MfT"/>
+                        <segue destination="DXT-ST-9Wg" kind="presentation" identifier="toAddRouteVC" modalPresentationStyle="fullScreen" id="JgI-yT-F9s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vnK-DI-hhn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -386,7 +386,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Route Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EjT-EG-vWi">
-                                <rect key="frame" x="16" y="223" width="361" height="50"/>
+                                <rect key="frame" x="16" y="179" width="361" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="1p6-KG-wwa"/>
                                 </constraints>
@@ -394,7 +394,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRC-wa-GoJ">
-                                <rect key="frame" x="16" y="343" width="361" height="50"/>
+                                <rect key="frame" x="16" y="299" width="361" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="hge-7R-eIU"/>
                                 </constraints>
@@ -403,7 +403,7 @@
                                 <buttonConfiguration key="configuration" style="gray" title="Done"/>
                                 <connections>
                                     <action selector="doneClicked:" destination="DXT-ST-9Wg" eventType="touchUpInside" id="GHi-pz-VmA"/>
-                                    <segue destination="fpI-qp-Yu5" kind="show" identifier="toCreatedStepsVC" id="t80-li-M4f"/>
+                                    <segue destination="fpI-qp-Yu5" kind="presentation" identifier="toCreatedStepsVC" modalPresentationStyle="fullScreen" id="t80-li-M4f"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cYZ-hA-5gl">
@@ -425,7 +425,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="map.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="A2t-2P-Jlh">
-                                <rect key="frame" x="349" y="104" width="28" height="43"/>
+                                <rect key="frame" x="349" y="60" width="28" height="43.000000000000014"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44.333333333333343" id="OWb-PG-N24"/>
                                 </constraints>
@@ -457,7 +457,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ymO-nR-KXS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1834.3511450381679" y="1282.3943661971832"/>
+            <point key="canvasLocation" x="2761.0687022900761" y="1282.3943661971832"/>
         </scene>
         <!--Created Steps View Controller-->
         <scene sceneID="e4H-3W-Txk">
@@ -468,7 +468,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MZa-CK-duz">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -485,12 +485,12 @@
                     <connections>
                         <outlet property="stepTableView" destination="MZa-CK-duz" id="ILR-9f-Bqj"/>
                         <segue destination="oQ2-Rx-fa3" kind="show" identifier="toAddMapKitVC" id="n3R-DU-IXm"/>
-                        <segue destination="oQ2-Rx-fa3" kind="show" id="rxE-wk-jAh"/>
+                        <segue destination="oQ2-Rx-fa3" kind="presentation" modalPresentationStyle="fullScreen" id="rxE-wk-jAh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1I-Z9-7gT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2675.5725190839694" y="1281.6901408450706"/>
+            <point key="canvasLocation" x="3602.2900763358775" y="1281.6901408450706"/>
         </scene>
         <!--Add Map Kit View Controller-->
         <scene sceneID="rRh-cn-dqk">
@@ -501,7 +501,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wjp-hA-6n1">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                         </subviews>
@@ -517,12 +517,12 @@
                     <navigationItem key="navigationItem" id="fTW-GY-2az"/>
                     <connections>
                         <outlet property="mapView" destination="wjp-hA-6n1" id="fmo-fc-dzc"/>
-                        <segue destination="b9i-2f-Xd9" kind="show" identifier="toStepDetailsVC" id="rMY-M5-elD"/>
+                        <segue destination="b9i-2f-Xd9" kind="presentation" identifier="toStepDetailsVC" modalPresentationStyle="fullScreen" id="rMY-M5-elD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cB1-6J-jrC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3678.6259541984732" y="1281.6901408450706"/>
+            <point key="canvasLocation" x="4605.3435114503818" y="1281.6901408450706"/>
         </scene>
         <!--Step Details View Controller-->
         <scene sceneID="Wfo-vL-3Bz">
@@ -533,7 +533,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Step Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RHR-Rd-FSd">
-                                <rect key="frame" x="16" y="223" width="361" height="50"/>
+                                <rect key="frame" x="16" y="179" width="361" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="8Xm-ph-CC0"/>
                                 </constraints>
@@ -541,7 +541,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="If there is a note you would like to leave for this step, write it down." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="phT-Mu-kMf">
-                                <rect key="frame" x="16" y="313" width="361" height="50"/>
+                                <rect key="frame" x="16" y="269" width="361" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Ico-pN-s3C"/>
                                 </constraints>
@@ -558,7 +558,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="map.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hNK-yz-vhT">
-                                <rect key="frame" x="349" y="104" width="28" height="43"/>
+                                <rect key="frame" x="349" y="60" width="28" height="43.000000000000014"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44.333333333333329" id="Py0-1J-X5w"/>
                                 </constraints>
@@ -590,7 +590,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hic-wu-UNh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4504.580152671756" y="1281.6901408450706"/>
+            <point key="canvasLocation" x="5431.2977099236641" y="1281.6901408450706"/>
         </scene>
         <!--Search Step View Controller-->
         <scene sceneID="3gg-Pu-DcF">
@@ -875,7 +875,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="n3R-DU-IXm"/>
+        <segue reference="rxE-wk-jAh"/>
         <segue reference="Ow1-tY-2Ob"/>
     </inferredMetricsTieBreakers>
     <resources>

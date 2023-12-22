@@ -24,15 +24,13 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var passwordAgainTextField: UITextField!
     
+    // Firestore referansını oluştur
+        let db = Firestore.firestore()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+        override func viewDidLoad() {
+            super.viewDidLoad()
+        }
 
-        
-        
-        
-    }
-    
 
     @IBAction func doneClicked(_ sender: Any) {
         
@@ -83,6 +81,26 @@ class SignUpViewController: UIViewController {
         
         
     }
+    
+    func addAdditionalUserData(name: String, surname: String) {
+        if let currentUser = Auth.auth().currentUser {
+            let userData: [String: Any] = [
+                "name": name,
+                "surname": surname,
+                // Diğer ek bilgileri buraya ekleyebilirsiniz
+            ]
+
+            // Firestore'da "users" koleksiyonuna kullanıcı bilgilerini ekle
+            db.collection("users").document(currentUser.uid).setData(userData) { error in
+                if let error = error {
+                    print("Error adding user data to Firestore: \(error.localizedDescription)")
+                } else {
+                    print("User data added to Firestore successfully!")
+                }
+            }
+        }
+    }
+
     
     func errorMessage(titleInput: String, messageInput: String){
         let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: .alert

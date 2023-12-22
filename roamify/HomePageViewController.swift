@@ -38,6 +38,7 @@ class HomePageViewController: UIViewController,UISearchBarDelegate {
     
 
     @IBAction func addNewRouteClicked(_ sender: Any) {
+        performSegue(withIdentifier:"toAddRouteVC", sender: self)
         
     }
     

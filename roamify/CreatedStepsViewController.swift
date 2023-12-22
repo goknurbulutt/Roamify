@@ -40,7 +40,7 @@ class CreatedStepsViewController: UIViewController, UITableViewDataSource, UITab
             }
         }
 
-        // UITableViewDataSource ve UITableViewDelegate fonksiyonları
+        
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return steps.count
         }
@@ -53,7 +53,7 @@ class CreatedStepsViewController: UIViewController, UITableViewDataSource, UITab
             return cell
         }
 
-        // Step eklemek için bir fonksiyon ekleyebilirsin
+        
         func addStep(name: String, note: String) {
             let step = Step(name: name, note: note)
             steps.append(step)
@@ -90,7 +90,7 @@ class CreatedStepsViewController: UIViewController, UITableViewDataSource, UITab
             present(alertController, animated: true, completion: nil)
         }
 
-        // prepare fonksiyonunu güncelle
+        
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "toAddMapKitVC" {
                 if let addMapKitVC = segue.destination as? AddMapKitViewController,

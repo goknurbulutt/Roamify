@@ -30,23 +30,39 @@ class AddRouteViewController: UIViewController {
 
     @IBAction func doneClicked(_ sender: UIButton) {
         if let routeName = routeNameTextField.text {
-            // Firebase'e rota ekleyebilirsin
-            db.collection("routes").addDocument(data: ["routeName": routeName]) { error in
-                if let error = error {
-                    print("Error adding route: \(error.localizedDescription)")
-                } else {
-                    print("Route added successfully!")
-                    self.performSegue(withIdentifier: "toCreatedStepsVC", sender: self)
+                
+                guard let userID = Auth.auth().currentUser?.uid else {
+                    print("User ID is nil.")
+                    return
+                }
+
+                // Firestore'da "users" koleksiyonu içinde kullanıcının altında bir koleksiyon oluştur
+                let userRoutesCollection = db.collection("users").document(userID).collection("routes")
+
+                // Kullanıcının altındaki "routes" koleksiyonuna rota ekleyebilirsin
+                let routeData: [String: Any] = [
+                    "routeName": routeName,
+                    // Diğer gerekli verileri ekleyebilirsin
+                ]
+
+                userRoutesCollection.addDocument(data: routeData) { error in
+                    if let error = error {
+                        print("Error adding route: \(error.localizedDescription)")
+                    } else {
+                        print("Route added successfully!")
+
+                        self.performSegue(withIdentifier: "toCreatedStepsVC", sender: self)
+                        
+                    }
                 }
             }
         }
-    }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toCreatedStepsVC" {
-            if let createdStepsVC = segue.destination as? CreatedStepsViewController {
-                createdStepsVC.routeName = routeNameTextField.text
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "toCreatedStepsVC" {
+                if let createdStepsVC = segue.destination as? CreatedStepsViewController {
+                    createdStepsVC.routeName = routeNameTextField.text
+                }
             }
         }
-    }
     }
