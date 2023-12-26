@@ -42,17 +42,20 @@ class AddRouteViewController: UIViewController {
                 // Kullanıcının altındaki "routes" koleksiyonuna rota ekleyebilirsin
                 let routeData: [String: Any] = [
                     "routeName": routeName,
-                    // Diğer gerekli verileri ekleyebilirsin
+                    
                 ]
 
-                userRoutesCollection.addDocument(data: routeData) { error in
+            userRoutesCollection.addDocument(data: routeData) { error in
                     if let error = error {
                         print("Error adding route: \(error.localizedDescription)")
                     } else {
                         print("Route added successfully!")
 
-                        self.performSegue(withIdentifier: "toCreatedStepsVC", sender: self)
-                        
+                    
+                        DispatchQueue.main.async {
+                            self.performSegue(withIdentifier: "toCreatedStepsVC", sender: self)
+                            // CreatedStepsViewController'ı sunma kodu burada
+                        }
                     }
                 }
             }

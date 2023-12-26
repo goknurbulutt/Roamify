@@ -23,12 +23,12 @@ class CreatedStepsViewController: UIViewController, UITableViewDataSource, UITab
 
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonClick))
 
-            // Firebase'den adım verilerini çekebilirsin
+            
             db.collection("routes").document(routeName ?? "").collection("steps").getDocuments { snapshot, error in
                 if let error = error {
                     print("Error fetching steps: \(error.localizedDescription)")
                 } else {
-                    // Snapshot'tan adım verilerini çek ve steps dizisine ekle
+                    
                     for document in snapshot!.documents {
                         let stepData = document.data()
                         if let name = stepData["stepName"] as? String, let note = stepData["note"] as? String {
