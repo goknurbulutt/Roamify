@@ -24,7 +24,7 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var passwordAgainTextField: UITextField!
     
-    // Firestore referansını oluştur
+  
         let db = Firestore.firestore()
 
         override func viewDidLoad() {
@@ -35,27 +35,26 @@ class SignUpViewController: UIViewController {
     @IBAction func doneClicked(_ sender: Any) {
         
        
-            // Ad ve soyad boş olmamalıdır
+          
             guard let name = nameTextField.text, !name.isEmpty,
                   let surname = surnameTextField.text, !surname.isEmpty else {
                 errorMessage(titleInput: "Hata!", messageInput: "Ad ve soyad boş olmamalıdır!")
                 return
             }
             
-            // E-posta ve şifre boş olmamalıdır
+            
             guard let email = emailTextField.text, !email.isEmpty,
                   let password = passwordTextField.text, !password.isEmpty else {
                 errorMessage(titleInput: "Hata!", messageInput: "E-posta ve şifre boş olmamalıdır!")
                 return
             }
-            
-            // Şifreler eşleşmeli
+           
             guard password == passwordAgainTextField.text else {
                 errorMessage(titleInput: "Hata!", messageInput: "Şifreler eşleşmiyor!")
                 return
             }
 
-            // Firebase kullanıcı oluşturma
+            
             Auth.auth().createUser(withEmail: email, password: password) { authDataResult, error in
                 if let error = error {
                     self.errorMessage(titleInput: "Hata", messageInput: error.localizedDescription)
@@ -68,7 +67,7 @@ class SignUpViewController: UIViewController {
                         if let error = error {
                             print("Hata: \(error.localizedDescription)")
                         } else {
-                            // Başarıyla kaydedildi, giriş sayfasına yönlendir
+                           
                             
                             self.performSegue(withIdentifier: "toHomePageVC", sender: nil)
                         }
@@ -87,10 +86,10 @@ class SignUpViewController: UIViewController {
             let userData: [String: Any] = [
                 "name": name,
                 "surname": surname,
-                // Diğer ek bilgileri buraya ekleyebilirsiniz
+             
             ]
 
-            // Firestore'da "users" koleksiyonuna kullanıcı bilgilerini ekle
+            
             db.collection("users").document(currentUser.uid).setData(userData) { error in
                 if let error = error {
                     print("Error adding user data to Firestore: \(error.localizedDescription)")

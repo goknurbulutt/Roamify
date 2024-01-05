@@ -339,7 +339,7 @@
                     <connections>
                         <outlet property="searchBar" destination="NFp-wC-hfO" id="ntI-sf-Oyn"/>
                         <segue destination="J8z-Vu-lbp" kind="show" identifier="toSearchRoutesVC" id="FIj-O7-MfT"/>
-                        <segue destination="DXT-ST-9Wg" kind="presentation" identifier="toAddRouteVC" modalPresentationStyle="fullScreen" id="JgI-yT-F9s"/>
+                        <segue destination="roI-LA-bvj" kind="presentation" identifier="toAddRouteVC" modalPresentationStyle="fullScreen" id="JgI-yT-F9s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vnK-DI-hhn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -387,7 +387,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Route Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EjT-EG-vWi">
-                                <rect key="frame" x="16" y="120" width="361" height="50"/>
+                                <rect key="frame" x="16" y="164" width="361" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="1p6-KG-wwa"/>
                                 </constraints>
@@ -395,7 +395,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRC-wa-GoJ">
-                                <rect key="frame" x="16" y="240" width="361" height="50"/>
+                                <rect key="frame" x="16" y="284" width="361" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="hge-7R-eIU"/>
                                 </constraints>
@@ -426,7 +426,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="map.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="A2t-2P-Jlh">
-                                <rect key="frame" x="349" y="0.99999999999999645" width="28" height="43"/>
+                                <rect key="frame" x="349" y="45" width="28" height="43.000000000000014"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44.333333333333343" id="OWb-PG-N24"/>
                                 </constraints>
@@ -458,7 +458,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ymO-nR-KXS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2761.0687022900761" y="1282.3943661971832"/>
+            <point key="canvasLocation" x="3687.7862595419847" y="1282.3943661971832"/>
         </scene>
         <!--Created Steps View Controller-->
         <scene sceneID="e4H-3W-Txk">
@@ -491,7 +491,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1I-Z9-7gT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3602.2900763358775" y="1281.6901408450706"/>
+            <point key="canvasLocation" x="4529.0076335877857" y="1281.6901408450706"/>
         </scene>
         <!--Add Map Kit View Controller-->
         <scene sceneID="rRh-cn-dqk">
@@ -523,7 +523,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cB1-6J-jrC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4605.3435114503818" y="1281.6901408450706"/>
+            <point key="canvasLocation" x="5532.06106870229" y="1281.6901408450706"/>
         </scene>
         <!--Step Details View Controller-->
         <scene sceneID="Wfo-vL-3Bz">
@@ -591,7 +591,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hic-wu-UNh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5431.2977099236641" y="1281.6901408450706"/>
+            <point key="canvasLocation" x="6358.0152671755723" y="1281.6901408450706"/>
         </scene>
         <!--Search Step View Controller-->
         <scene sceneID="3gg-Pu-DcF">
@@ -873,6 +873,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Znm-B5-wn3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-816.03053435114498" y="-268.3098591549296"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="71R-mo-0dd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="roI-LA-bvj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="o1m-K3-GAR">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DXT-ST-9Wg" kind="relationship" relationship="rootViewController" id="E3V-gj-Kqv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="neU-DI-rrr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2761.0687022900761" y="1282.3943661971832"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

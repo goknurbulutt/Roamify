@@ -25,7 +25,7 @@ class HomePageViewController: UIViewController,UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
             if let searchText = searchBar.text {
-                // searchText, kullanıcının girdiği metni içerir
+                
                 print("Arama metni: \(searchText)")
                 performSegue(withIdentifier:"toSearchRoutesVC", sender: self)
                 

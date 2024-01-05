@@ -57,7 +57,7 @@ class AddMapKitViewController: UIViewController,MKMapViewDelegate, CLLocationMan
                 let coordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
                 addPinToMap(coordinate)
 
-                // Firebase'e adımı kaydet
+                
                 saveStepToFirebase(coordinate)
             }
         }
@@ -74,7 +74,7 @@ class AddMapKitViewController: UIViewController,MKMapViewDelegate, CLLocationMan
                 "stepName": stepName
             ]
 
-            // Firestore'a adım verilerini kaydet
+           
             db.collection("routes").document(routeName ?? "").collection("steps").document(stepName).setData(stepData) { [weak self] error in
                 guard let self = self else { return }
 
@@ -84,7 +84,7 @@ class AddMapKitViewController: UIViewController,MKMapViewDelegate, CLLocationMan
                 } else {
                     print("Step data saved successfully to Firestore")
 
-                    // Firestore'dan adımın bilgilerini al ve segue'i başlat
+                   
                     self.showStepDetails(for: coordinate)
                 }
             }

@@ -36,15 +36,15 @@ class PasswordResetViewController: UIViewController {
         
         if emailTextField.text != "" && passwordTextField.text != "" {
                 
-                // E-postanın Firebase'de kayıtlı olup olmadığını kontrol et
+                
                 Auth.auth().signIn(withEmail: emailTextField.text!, password: self.passwordTextField.text!) { (authDataResult, signInError) in
                     if let signInError = signInError {
-                        // Giriş yapma işlemi sırasında bir hata oluştu
+                        
                         self.showErrorAlert(title: "Hata!", message: signInError.localizedDescription)
                     } else {
-                        // Giriş başarılı, kullanıcıyı yönlendir
+                        
                         if let user = authDataResult?.user {
-                            // Kullanıcı ID'sini consola yazdır
+                           
                             print("Kullanıcı ID:", user.uid)
                         }
                         self.performSegue(withIdentifier: "toHomePageVC2", sender: nil)
@@ -60,7 +60,7 @@ class PasswordResetViewController: UIViewController {
                 let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alert.addAction(okButton)
 
-                // Bu view controller'dan alert'ı göster
+               
                 self.present(alert, animated: true, completion: nil)
             }
 

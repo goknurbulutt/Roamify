@@ -36,10 +36,10 @@ class AddRouteViewController: UIViewController {
                     return
                 }
 
-                // Firestore'da "users" koleksiyonu içinde kullanıcının altında bir koleksiyon oluştur
+                
                 let userRoutesCollection = db.collection("users").document(userID).collection("routes")
 
-                // Kullanıcının altındaki "routes" koleksiyonuna rota ekleyebilirsin
+               
                 let routeData: [String: Any] = [
                     "routeName": routeName,
                     
@@ -54,7 +54,7 @@ class AddRouteViewController: UIViewController {
                     
                         DispatchQueue.main.async {
                             self.performSegue(withIdentifier: "toCreatedStepsVC", sender: self)
-                            // CreatedStepsViewController'ı sunma kodu burada
+                           
                         }
                     }
                 }
