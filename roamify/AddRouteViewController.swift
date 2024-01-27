@@ -30,16 +30,16 @@ class AddRouteViewController: UIViewController {
   
 
     @IBAction func doneClicked(_ sender: UIButton) {
+        
+        
+        guard let userID = Auth.auth().currentUser?.uid else {
+            print("User ID is nil.")
+            return
+        }
+        
+        let userRoutesCollection = db.collection("users").document(userID).collection("routes")
+        
         if let routeName = routeNameTextField.text {
-                
-                guard let userID = Auth.auth().currentUser?.uid else {
-                    print("User ID is nil.")
-                    return
-                }
-
-                
-                let userRoutesCollection = db.collection("users").document(userID).collection("routes")
-
                
                 let routeData: [String: Any] = [
                     "routeName": routeName,
@@ -56,11 +56,7 @@ class AddRouteViewController: UIViewController {
                             UIApplication.topViewController()?.present(newViewController, animated: true, completion: nil)
                             print("Route added successfully2!")
                         }
-                       
-                       /* DispatchQueue.main.async {
-                            self.performSegue(withIdentifier: "toCreatedStepsVC", sender: self)
-                        }*/
-                    }
+                       }
                 }
             }
         }

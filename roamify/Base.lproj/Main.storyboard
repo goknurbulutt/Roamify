@@ -275,7 +275,7 @@
             <objects>
                 <viewController id="BYw-GO-ZCk" customClass="HomePageViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u9k-vO-2Bi">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" misplaced="YES" placeholder="Which route are you looking for?" translatesAutoresizingMaskIntoConstraints="NO" id="NFp-wC-hfO">
@@ -289,7 +289,7 @@
                                 </connections>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4js-a5-2Gt">
-                                <rect key="frame" x="16" y="752" width="361" height="70"/>
+                                <rect key="frame" x="16" y="742" width="361" height="70"/>
                                 <color key="backgroundColor" red="0.77372592687606812" green="0.92893069982528687" blue="0.94489496946334839" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="rVF-UK-uQE"/>
@@ -305,7 +305,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1a-Ja-zDS">
-                                <rect key="frame" x="16" y="642" width="361" height="70"/>
+                                <rect key="frame" x="16" y="632" width="361" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="h2b-sI-ejb"/>
                                 </constraints>
@@ -486,7 +486,7 @@
                     <navigationItem key="navigationItem" id="Uhl-m5-Ieh"/>
                     <connections>
                         <outlet property="stepTableView" destination="MZa-CK-duz" id="ILR-9f-Bqj"/>
-                        <segue destination="oQ2-Rx-fa3" kind="show" identifier="toAddMapKitVC" id="n3R-DU-IXm"/>
+                        <segue destination="oQ2-Rx-fa3" kind="presentation" identifier="toAddMapKitVC" modalPresentationStyle="fullScreen" id="n3R-DU-IXm"/>
                         <segue destination="oQ2-Rx-fa3" kind="presentation" modalPresentationStyle="fullScreen" id="rxE-wk-jAh"/>
                     </connections>
                 </viewController>
@@ -499,11 +499,11 @@
             <objects>
                 <viewController id="oQ2-Rx-fa3" customClass="AddMapKitViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U0g-7U-0My">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wjp-hA-6n1">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                         </subviews>
@@ -896,8 +896,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="n3R-DU-IXm"/>
-        <segue reference="Ici-Fb-JEe"/>
-        <segue reference="jLU-rF-2do"/>
+        <segue reference="TAg-Df-vWM"/>
+        <segue reference="1o5-hJ-TNc"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="map.circle" catalog="system" width="128" height="123"/>

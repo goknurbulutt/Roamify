@@ -20,11 +20,14 @@ class CreatedStepsViewController: UIViewController, UITableViewDataSource, UITab
             super.viewDidLoad()
             title = routeName
             
-
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonClick))
 
+            guard let routeName = routeName, !routeName.isEmpty else {
+                showAlert(message: "Route name cannot be empty.")
+                return
+            }
             
-            db.collection("routes").document(routeName ?? "").collection("steps").getDocuments { snapshot, error in
+            db.collection("routes").document(routeName ).collection("steps").getDocuments { snapshot, error in
                 if let error = error {
                     print("Error fetching steps: \(error.localizedDescription)")
                 } else {
@@ -38,6 +41,7 @@ class CreatedStepsViewController: UIViewController, UITableViewDataSource, UITab
                     self.stepTableView.reloadData()
                 }
             }
+            
         }
 
         
@@ -61,10 +65,7 @@ class CreatedStepsViewController: UIViewController, UITableViewDataSource, UITab
 
         @objc func addButtonClick() {
             
-            guard let routeName = routeName, !routeName.isEmpty else {
-                showAlert(message: "Route name cannot be empty.")
-                return
-            }
+           
 
             let alertController = UIAlertController(title: "Add Step", message: "Enter step name", preferredStyle: .alert)
 
