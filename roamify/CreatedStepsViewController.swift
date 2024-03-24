@@ -27,7 +27,7 @@ class CreatedStepsViewController: UIViewController, UITableViewDataSource, UITab
                 return
             }
             
-            db.collection("routes").document(routeName ).collection("steps").getDocuments { snapshot, error in
+            db.collection("routes").document(routeName).collection("steps").getDocuments { snapshot, error in
                 if let error = error {
                     print("Error fetching steps: \(error.localizedDescription)")
                 } else {

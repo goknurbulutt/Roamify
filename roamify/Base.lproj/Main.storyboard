@@ -275,7 +275,7 @@
             <objects>
                 <viewController id="BYw-GO-ZCk" customClass="HomePageViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u9k-vO-2Bi">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" misplaced="YES" placeholder="Which route are you looking for?" translatesAutoresizingMaskIntoConstraints="NO" id="NFp-wC-hfO">
@@ -289,7 +289,7 @@
                                 </connections>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4js-a5-2Gt">
-                                <rect key="frame" x="16" y="742" width="361" height="70"/>
+                                <rect key="frame" x="16" y="752" width="361" height="70"/>
                                 <color key="backgroundColor" red="0.77372592687606812" green="0.92893069982528687" blue="0.94489496946334839" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="rVF-UK-uQE"/>
@@ -305,7 +305,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1a-Ja-zDS">
-                                <rect key="frame" x="16" y="632" width="361" height="70"/>
+                                <rect key="frame" x="16" y="642" width="361" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="h2b-sI-ejb"/>
                                 </constraints>
@@ -404,7 +404,6 @@
                                 <buttonConfiguration key="configuration" style="gray" title="Done"/>
                                 <connections>
                                     <action selector="doneClicked:" destination="DXT-ST-9Wg" eventType="touchUpInside" id="GHi-pz-VmA"/>
-                                    <segue destination="fpI-qp-Yu5" kind="presentation" identifier="toCreatedStepsVC" modalPresentationStyle="fullScreen" id="t80-li-M4f"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cYZ-hA-5gl">
@@ -455,16 +454,17 @@
                         <outlet property="object" destination="A2t-2P-Jlh" id="Gv3-NZ-a5S"/>
                         <outlet property="routeNameTextField" destination="EjT-EG-vWi" id="bzW-jP-CDD"/>
                         <segue destination="BYw-GO-ZCk" kind="presentation" identifier="toHomePageVC" modalPresentationStyle="fullScreen" id="Ici-Fb-JEe"/>
+                        <segue destination="fpI-qp-Yu5" kind="presentation" identifier="CreatedStepsViewController" id="WpK-p5-PHd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ymO-nR-KXS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3687.7862595419847" y="1282.3943661971832"/>
+            <point key="canvasLocation" x="3645" y="1294"/>
         </scene>
         <!--Created Steps View Controller-->
         <scene sceneID="e4H-3W-Txk">
             <objects>
-                <viewController storyboardIdentifier="tolga" id="fpI-qp-Yu5" customClass="CreatedStepsViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreatedStepsViewController" id="fpI-qp-Yu5" customClass="CreatedStepsViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NvY-Ka-qJx">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -486,7 +486,7 @@
                     <navigationItem key="navigationItem" id="Uhl-m5-Ieh"/>
                     <connections>
                         <outlet property="stepTableView" destination="MZa-CK-duz" id="ILR-9f-Bqj"/>
-                        <segue destination="oQ2-Rx-fa3" kind="presentation" identifier="toAddMapKitVC" modalPresentationStyle="fullScreen" id="n3R-DU-IXm"/>
+                        <segue destination="oQ2-Rx-fa3" kind="presentation" identifier="toAddMapKitVC" id="n3R-DU-IXm"/>
                         <segue destination="oQ2-Rx-fa3" kind="presentation" modalPresentationStyle="fullScreen" id="rxE-wk-jAh"/>
                     </connections>
                 </viewController>
@@ -499,11 +499,11 @@
             <objects>
                 <viewController id="oQ2-Rx-fa3" customClass="AddMapKitViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U0g-7U-0My">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wjp-hA-6n1">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                         </subviews>
@@ -519,7 +519,7 @@
                     <navigationItem key="navigationItem" id="fTW-GY-2az"/>
                     <connections>
                         <outlet property="mapView" destination="wjp-hA-6n1" id="fmo-fc-dzc"/>
-                        <segue destination="b9i-2f-Xd9" kind="presentation" identifier="toStepDetailsVC" modalPresentationStyle="fullScreen" id="rMY-M5-elD"/>
+                        <segue destination="b9i-2f-Xd9" kind="presentation" identifier="toStepDetailsVC" id="rMY-M5-elD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cB1-6J-jrC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -531,7 +531,7 @@
             <objects>
                 <viewController id="b9i-2f-Xd9" customClass="StepDetailsViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FYp-0c-tbA">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Step Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RHR-Rd-FSd">
@@ -588,6 +588,7 @@
                         <outlet property="object" destination="hNK-yz-vhT" id="QHP-k1-R3w"/>
                         <outlet property="stepNameTextField" destination="RHR-Rd-FSd" id="0hQ-6g-QJE"/>
                         <outlet property="stepNoteTextField" destination="phT-Mu-kMf" id="032-UF-OrZ"/>
+                        <segue destination="fpI-qp-Yu5" kind="presentation" identifier="toYeni" modalPresentationStyle="fullScreen" id="VWr-Ad-oFS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hic-wu-UNh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -896,7 +897,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="n3R-DU-IXm"/>
-        <segue reference="TAg-Df-vWM"/>
+        <segue reference="VWr-Ad-oFS"/>
+        <segue reference="Ici-Fb-JEe"/>
         <segue reference="1o5-hJ-TNc"/>
     </inferredMetricsTieBreakers>
     <resources>

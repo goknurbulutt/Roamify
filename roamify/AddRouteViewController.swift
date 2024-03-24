@@ -17,7 +17,7 @@ class AddRouteViewController: UIViewController {
     @IBOutlet weak var routeNameTextField: UITextField!
     let db = Firestore.firestore()
     
-    
+    let userId = Auth.auth().currentUser?.uid
     
     
 
@@ -31,60 +31,38 @@ class AddRouteViewController: UIViewController {
 
     @IBAction func doneClicked(_ sender: UIButton) {
         
-        
-        guard let userID = Auth.auth().currentUser?.uid else {
-            print("User ID is nil.")
-            return
-        }
-        
-        let userRoutesCollection = db.collection("users").document(userID).collection("routes")
-        
-        if let routeName = routeNameTextField.text {
-               
-                let routeData: [String: Any] = [
-                    "routeName": routeName,
-                    
-                ]
-
-            userRoutesCollection.addDocument(data: routeData) { error in
+        guard let routeName = routeNameTextField.text, !routeName.isEmpty else {
+                    showAlert(message: "Please enter a route name.")
+                    return
+                }
+                
+                // Firestore'e rota eklemek
+                let userID = Auth.auth().currentUser?.uid// Örnek kullanıcı kimliği, kullanıcı oturum açtıktan sonra gerçek kullanıcı kimliğini almalısınız
+        let userRoutesCollection = db.collection("users").document(userId!).collection("routes")
+                
+                userRoutesCollection.addDocument(data: ["routeName": routeName]) { error in
                     if let error = error {
                         print("Error adding route: \(error.localizedDescription)")
+                        self.showAlert(message: "Error adding route. Please try again.")
                     } else {
                         print("Route added successfully!")
-                        DispatchQueue.main.async{
-                            let newViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tolga") as! CreatedStepsViewController
-                            UIApplication.topViewController()?.present(newViewController, animated: true, completion: nil)
-                            print("Route added successfully2!")
-                        }
-                       }
+                        self.navigateToCreatedStepsViewController(with: routeName)
+                    }
                 }
             }
-        }
-
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "toCreatedStepsVC" {
-                if let createdStepsVC = segue.destination as? CreatedStepsViewController {
-                    createdStepsVC.routeName = routeNameTextField.text
+            
+            func navigateToCreatedStepsViewController(with routeName: String) {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                if let createdStepsVC = storyboard.instantiateViewController(withIdentifier: "CreatedStepsViewController") as? CreatedStepsViewController {
+                    createdStepsVC.routeName = routeName
+                    navigationController?.pushViewController(createdStepsVC, animated: true)
                 }
             }
-        }
-    
-    
-    }
-
-extension UIApplication {
-    class func topViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
-        if let nav = base as? UINavigationController {
-            return topViewController(base: nav.visibleViewController)
-        }
-        if let tab = base as? UITabBarController {
-            if let selected = tab.selectedViewController {
-                return topViewController(base: selected)
+            
+            func showAlert(message: String) {
+                let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(okAction)
+                present(alert, animated: true, completion: nil)
             }
         }
-        if let presented = base?.presentedViewController {
-            return topViewController(base: presented)
-        }
-        return base
-    }
-}
