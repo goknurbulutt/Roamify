@@ -31,13 +31,13 @@ class StepDetailsViewController: UIViewController {
             
            
             if let stepName = stepNameTextField.text, let note = stepNoteTextField.text {
-                // Firebase'e adım detaylarını ekleyebilirsiniz
+              
                 db.collection("steps").addDocument(data: ["stepName": stepName, "note": note]) { error in
                     if let error = error {
                         print("Error adding step details: \(error.localizedDescription)")
                     } else {
                         print("Step details added successfully!")
-                        // Gerekirse başka işlemler
+                       
                     }
                 }
             }

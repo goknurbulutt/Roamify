@@ -36,8 +36,8 @@ class AddRouteViewController: UIViewController {
                     return
                 }
                 
-                // Firestore'e rota eklemek
-                let userID = Auth.auth().currentUser?.uid// Örnek kullanıcı kimliği, kullanıcı oturum açtıktan sonra gerçek kullanıcı kimliğini almalısınız
+                
+                let userID = Auth.auth().currentUser?.uid
         let userRoutesCollection = db.collection("users").document(userId!).collection("routes")
                 
                 userRoutesCollection.addDocument(data: ["routeName": routeName]) { error in

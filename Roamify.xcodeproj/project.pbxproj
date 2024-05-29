@@ -28,6 +28,7 @@
 		2FA795492AE16E92006EE4C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FA795472AE16E92006EE4C5 /* Main.storyboard */; };
 		2FA7954B2AE16E94006EE4C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FA7954A2AE16E94006EE4C5 /* Assets.xcassets */; };
 		2FA7954E2AE16E94006EE4C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FA7954C2AE16E94006EE4C5 /* LaunchScreen.storyboard */; };
+		2FDB8D612BB364CD0054D2A9 /* StepTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDB8D602BB364CD0054D2A9 /* StepTableViewCell.swift */; };
 		737318F5F6086014FE26D59E /* Pods_Roamify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55FEDA0FA08EFD8E35D1D6D /* Pods_Roamify.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		2FA7954A2AE16E94006EE4C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FA7954D2AE16E94006EE4C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2FA7954F2AE16E94006EE4C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FDB8D602BB364CD0054D2A9 /* StepTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepTableViewCell.swift; sourceTree = "<group>"; };
 		9C123DB8EF284A0DEC745587 /* Pods-Roamify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roamify.release.xcconfig"; path = "Target Support Files/Pods-Roamify/Pods-Roamify.release.xcconfig"; sourceTree = "<group>"; };
 		F55FEDA0FA08EFD8E35D1D6D /* Pods_Roamify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roamify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F66BADC4D921CC45979E92FE /* Pods-Roamify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roamify.debug.xcconfig"; path = "Target Support Files/Pods-Roamify/Pods-Roamify.debug.xcconfig"; sourceTree = "<group>"; };
@@ -83,7 +85,6 @@
 		2FA795352AE16E92006EE4C5 = {
 			isa = PBXGroup;
 			children = (
-				2F425CB12B1FB5BB00D3B966 /* Step.swift */,
 				2FA795402AE16E92006EE4C5 /* roamify */,
 				7A654FFD1F212A85E3E88F13 /* Pods */,
 				2FA7953F2AE16E92006EE4C5 /* Products */,
@@ -103,15 +104,17 @@
 			isa = PBXGroup;
 			children = (
 				2FA795412AE16E92006EE4C5 /* AppDelegate.swift */,
+				2F425CB12B1FB5BB00D3B966 /* Step.swift */,
 				2FA795432AE16E92006EE4C5 /* SceneDelegate.swift */,
 				2FA795452AE16E92006EE4C5 /* ViewController.swift */,
 				2FA5BD902AF3EE31003B907A /* SignUpViewController.swift */,
 				2FA5BD922AF3EEAF003B907A /* PasswordResetViewController.swift */,
-				2FA5BDA22AF3F28A003B907A /* CreatedStepsViewController.swift */,
 				2FA5BDA02AF3F1C3003B907A /* AddRouteViewController.swift */,
+				2FA5BDA22AF3F28A003B907A /* CreatedStepsViewController.swift */,
+				2FDB8D602BB364CD0054D2A9 /* StepTableViewCell.swift */,
 				2FA5BDA42AF3F2CB003B907A /* AddMapKitViewController.swift */,
-				2FA5BDA82AF3F371003B907A /* HelpViewController.swift */,
 				2FA5BDA62AF3F328003B907A /* StepDetailsViewController.swift */,
+				2FA5BDA82AF3F371003B907A /* HelpViewController.swift */,
 				2FA5BD942AF3EEFD003B907A /* VerificationViewController.swift */,
 				2FA5BD9A2AF3F0F3003B907A /* SearchRoutesViewController.swift */,
 				2FA5BD982AF3F072003B907A /* MyRoutesViewController.swift */,
@@ -267,6 +270,7 @@
 				2FA5BDA92AF3F371003B907A /* HelpViewController.swift in Sources */,
 				2FA5BD992AF3F072003B907A /* MyRoutesViewController.swift in Sources */,
 				2FA5BDA12AF3F1C3003B907A /* AddRouteViewController.swift in Sources */,
+				2FDB8D612BB364CD0054D2A9 /* StepTableViewCell.swift in Sources */,
 				2FA795442AE16E92006EE4C5 /* SceneDelegate.swift in Sources */,
 				2FA5BDA32AF3F28A003B907A /* CreatedStepsViewController.swift in Sources */,
 			);

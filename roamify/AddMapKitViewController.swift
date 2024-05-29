@@ -98,7 +98,7 @@ class AddMapKitViewController: UIViewController,MKMapViewDelegate, CLLocationMan
 
 
         func showStepDetails(for coordinate: CLLocationCoordinate2D) {
-            // Segue'i başlat
+         
             performSegue(withIdentifier: "toStepDetailsVC", sender: ["latitude": coordinate.latitude, "longitude": coordinate.longitude, "stepName": stepName])
         }
 

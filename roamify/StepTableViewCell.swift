@@ -9,6 +9,7 @@ import UIKit
 
 class StepTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var stepLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -18,6 +19,10 @@ class StepTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    struct Step {
+        var name: String
+        var note: String
     }
 
 }
