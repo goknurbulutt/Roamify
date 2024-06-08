@@ -289,7 +289,7 @@
                                 </connections>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4js-a5-2Gt">
-                                <rect key="frame" x="16" y="752" width="361" height="70"/>
+                                <rect key="frame" x="16" y="718" width="361" height="70"/>
                                 <color key="backgroundColor" red="0.77254901960784317" green="0.92941176470588238" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="rVF-UK-uQE"/>
@@ -305,7 +305,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1a-Ja-zDS">
-                                <rect key="frame" x="16" y="642" width="361" height="70"/>
+                                <rect key="frame" x="16" y="608" width="361" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="h2b-sI-ejb"/>
                                 </constraints>
@@ -339,7 +339,7 @@
                     <connections>
                         <outlet property="searchBar" destination="NFp-wC-hfO" id="ntI-sf-Oyn"/>
                         <segue destination="J8z-Vu-lbp" kind="show" identifier="toSearchRoutesVC" id="FIj-O7-MfT"/>
-                        <segue destination="roI-LA-bvj" kind="presentation" identifier="toAddRouteVC" modalPresentationStyle="fullScreen" id="JgI-yT-F9s"/>
+                        <segue destination="roI-LA-bvj" kind="show" identifier="toAddRouteVC" id="JgI-yT-F9s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vnK-DI-hhn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -351,11 +351,11 @@
             <objects>
                 <viewController id="J8z-Vu-lbp" customClass="SearchRoutesViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NT3-OW-6wh">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6Vb-K0-9Gk">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -387,7 +387,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Route Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EjT-EG-vWi">
-                                <rect key="frame" x="16" y="164" width="361" height="50"/>
+                                <rect key="frame" x="16" y="223" width="361" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="1p6-KG-wwa"/>
                                 </constraints>
@@ -395,7 +395,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRC-wa-GoJ">
-                                <rect key="frame" x="16" y="284" width="361" height="50"/>
+                                <rect key="frame" x="16" y="343" width="361" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="hge-7R-eIU"/>
                                 </constraints>
@@ -407,7 +407,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cYZ-hA-5gl">
-                                <rect key="frame" x="16" y="618" width="361" height="189"/>
+                                <rect key="frame" x="16" y="584" width="361" height="189"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="189" id="1D2-hB-Wlx"/>
@@ -425,7 +425,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="map.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="A2t-2P-Jlh">
-                                <rect key="frame" x="349" y="45" width="28" height="43.000000000000014"/>
+                                <rect key="frame" x="349" y="104" width="28" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44.333333333333343" id="OWb-PG-N24"/>
                                 </constraints>
@@ -453,8 +453,7 @@
                         <outlet property="howDoesLabel" destination="cYZ-hA-5gl" id="wxa-Zc-1AN"/>
                         <outlet property="object" destination="A2t-2P-Jlh" id="Gv3-NZ-a5S"/>
                         <outlet property="routeNameTextField" destination="EjT-EG-vWi" id="bzW-jP-CDD"/>
-                        <segue destination="BYw-GO-ZCk" kind="presentation" identifier="toHomePageVC" modalPresentationStyle="fullScreen" id="Ici-Fb-JEe"/>
-                        <segue destination="fpI-qp-Yu5" kind="presentation" identifier="CreatedStepsViewController" id="WpK-p5-PHd"/>
+                        <segue destination="fpI-qp-Yu5" kind="show" identifier="CreatedStepsViewController" id="WpK-p5-PHd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ymO-nR-KXS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -466,7 +465,7 @@
             <objects>
                 <viewController storyboardIdentifier="CreatedStepsViewController" id="fpI-qp-Yu5" customClass="CreatedStepsViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NvY-Ka-qJx">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MZa-CK-duz">
@@ -481,7 +480,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAd-aW-UGx">
-                                                    <rect key="frame" x="32" y="27" width="341" height="21"/>
+                                                    <rect key="frame" x="29" y="11" width="341" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                     <nil key="textColor"/>
@@ -508,8 +507,8 @@
                     <navigationItem key="navigationItem" id="Uhl-m5-Ieh"/>
                     <connections>
                         <outlet property="stepTableView" destination="MZa-CK-duz" id="ILR-9f-Bqj"/>
-                        <segue destination="oQ2-Rx-fa3" kind="presentation" identifier="toAddMapKitVC" id="n3R-DU-IXm"/>
-                        <segue destination="oQ2-Rx-fa3" kind="presentation" modalPresentationStyle="fullScreen" id="rxE-wk-jAh"/>
+                        <segue destination="oQ2-Rx-fa3" kind="show" identifier="toAddMapKitVC" id="n3R-DU-IXm"/>
+                        <segue destination="oQ2-Rx-fa3" kind="show" id="rxE-wk-jAh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1I-Z9-7gT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -521,11 +520,11 @@
             <objects>
                 <viewController id="oQ2-Rx-fa3" customClass="AddMapKitViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U0g-7U-0My">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wjp-hA-6n1">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                         </subviews>
@@ -541,7 +540,7 @@
                     <navigationItem key="navigationItem" id="fTW-GY-2az"/>
                     <connections>
                         <outlet property="mapView" destination="wjp-hA-6n1" id="fmo-fc-dzc"/>
-                        <segue destination="b9i-2f-Xd9" kind="presentation" identifier="toStepDetailsVC" id="rMY-M5-elD"/>
+                        <segue destination="b9i-2f-Xd9" kind="show" identifier="toStepDetailsVC" id="rMY-M5-elD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cB1-6J-jrC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -553,11 +552,11 @@
             <objects>
                 <viewController id="b9i-2f-Xd9" customClass="StepDetailsViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FYp-0c-tbA">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Step Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RHR-Rd-FSd">
-                                <rect key="frame" x="16" y="120" width="361" height="50"/>
+                                <rect key="frame" x="16" y="223" width="361" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="8Xm-ph-CC0"/>
                                 </constraints>
@@ -565,7 +564,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="If there is a note you would like to leave for this step, write it down." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="phT-Mu-kMf">
-                                <rect key="frame" x="16" y="210" width="361" height="50"/>
+                                <rect key="frame" x="16" y="313" width="361" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Ico-pN-s3C"/>
                                 </constraints>
@@ -582,7 +581,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="map.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hNK-yz-vhT">
-                                <rect key="frame" x="349" y="0.99999999999999645" width="28" height="43"/>
+                                <rect key="frame" x="349" y="104" width="28" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44.333333333333329" id="Py0-1J-X5w"/>
                                 </constraints>
@@ -622,11 +621,11 @@
             <objects>
                 <viewController id="gVg-UZ-IcI" customClass="SearchStepViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y3w-uz-Dm5">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5y7-w8-Hfl">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -654,11 +653,11 @@
             <objects>
                 <viewController id="vJL-Lu-WM3" customClass="MapKitViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7R5-LC-n8r">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KPk-SO-zzV">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                         </subviews>
@@ -685,11 +684,11 @@
             <objects>
                 <viewController id="osY-oQ-btA" customClass="MyRoutesViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FTb-ai-RjT">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="at0-tA-nHY">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RouteCell" id="y4M-b4-C3p">
@@ -911,10 +910,12 @@
         <!--Navigation Controller-->
         <scene sceneID="71R-mo-0dd">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="neU-DI-rrr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsWhenKeyboardAppears="YES" id="roI-LA-bvj" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="62i-4c-QtL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="o1m-K3-GAR">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -925,7 +926,6 @@
                         <segue destination="DXT-ST-9Wg" kind="relationship" relationship="rootViewController" id="E3V-gj-Kqv"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="neU-DI-rrr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2761.0687022900761" y="1282.3943661971832"/>
         </scene>
@@ -933,7 +933,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="n3R-DU-IXm"/>
         <segue reference="WpK-p5-PHd"/>
-        <segue reference="Ici-Fb-JEe"/>
         <segue reference="jLU-rF-2do"/>
     </inferredMetricsTieBreakers>
     <resources>
