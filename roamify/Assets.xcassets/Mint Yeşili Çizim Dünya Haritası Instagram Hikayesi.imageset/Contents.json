@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "Mint Yeşili Çizim Dünya Haritası Instagram Hikayesi.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Mint Yeşili Çizim Dünya Haritası Instagram Hikayesi@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Mint Yeşili Çizim Dünya Haritası Instagram Hikayesi.jpg",
+      "filename" : "Mint Yeşili Çizim Dünya Haritası Instagram Hikayesi@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
