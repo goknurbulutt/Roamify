@@ -27,7 +27,7 @@ class PasswordResetViewController: UIViewController {
     }
     
     @IBAction func forgotPasswordClicked(_ sender: Any) {
-        performSegue(withIdentifier: "toVerificationVC", sender: nil)
+//        performSegue(withIdentifier: "toVerificationVC", sender: nil)
     }
     
     
