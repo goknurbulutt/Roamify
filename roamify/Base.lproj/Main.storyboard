@@ -366,6 +366,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="b0b-sQ-TDR"/>
                     <connections>
+                        <outlet property="addNewRouteButton" destination="l1a-Ja-zDS" id="7sd-x8-cT9"/>
+                        <outlet property="myRoutesButton" destination="4js-a5-2Gt" id="Fv8-WU-IVa"/>
                         <outlet property="searchBar" destination="NFp-wC-hfO" id="ntI-sf-Oyn"/>
                         <segue destination="J8z-Vu-lbp" kind="show" identifier="toSearchRoutesVC" id="FIj-O7-MfT"/>
                         <segue destination="roI-LA-bvj" kind="show" identifier="toAddRouteVC" id="JgI-yT-F9s"/>
@@ -375,10 +377,10 @@
             </objects>
             <point key="canvasLocation" x="907.63358778625945" y="505.63380281690144"/>
         </scene>
-        <!--Search Routes View Controller-->
+        <!--Search Route View Controller-->
         <scene sceneID="I6b-Su-tjO">
             <objects>
-                <viewController id="J8z-Vu-lbp" customClass="SearchRoutesViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="J8z-Vu-lbp" customClass="SearchRouteViewController" customModule="Roamify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NT3-OW-6wh">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -409,7 +411,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="JRZ-bP-MiZ"/>
                     <connections>
-                        <outlet property="searchRoutesTableView" destination="6Vb-K0-9Gk" id="SFD-8o-TR0"/>
+                        <outlet property="searchRouteTableView" destination="6Vb-K0-9Gk" id="lnI-8k-Oho"/>
                         <segue destination="gVg-UZ-IcI" kind="show" identifier="toSearchStepVC" id="Twn-5w-b2n"/>
                     </connections>
                 </viewController>
@@ -679,6 +681,16 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5y7-w8-Hfl">
                                 <rect key="frame" x="0.0" y="103" width="430" height="795"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="searchStepCell" id="tRV-Ug-o4T">
+                                        <rect key="frame" x="0.0" y="50" width="430" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tRV-Ug-o4T" id="VAa-Kf-MAZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="430" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1Uf-0d-Esj"/>

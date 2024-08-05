@@ -14,7 +14,7 @@
 		2FA5BD952AF3EEFD003B907A /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5BD942AF3EEFD003B907A /* VerificationViewController.swift */; };
 		2FA5BD972AF3EF75003B907A /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5BD962AF3EF75003B907A /* HomePageViewController.swift */; };
 		2FA5BD992AF3F072003B907A /* MyRoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5BD982AF3F072003B907A /* MyRoutesViewController.swift */; };
-		2FA5BD9B2AF3F0F3003B907A /* SearchRoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5BD9A2AF3F0F3003B907A /* SearchRoutesViewController.swift */; };
+		2FA5BD9B2AF3F0F3003B907A /* SearchRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5BD9A2AF3F0F3003B907A /* SearchRouteViewController.swift */; };
 		2FA5BD9D2AF3F137003B907A /* SearchStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5BD9C2AF3F137003B907A /* SearchStepViewController.swift */; };
 		2FA5BD9F2AF3F176003B907A /* MapKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5BD9E2AF3F176003B907A /* MapKitViewController.swift */; };
 		2FA5BDA12AF3F1C3003B907A /* AddRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5BDA02AF3F1C3003B907A /* AddRouteViewController.swift */; };
@@ -40,7 +40,7 @@
 		2FA5BD942AF3EEFD003B907A /* VerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewController.swift; sourceTree = "<group>"; };
 		2FA5BD962AF3EF75003B907A /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		2FA5BD982AF3F072003B907A /* MyRoutesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRoutesViewController.swift; sourceTree = "<group>"; };
-		2FA5BD9A2AF3F0F3003B907A /* SearchRoutesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRoutesViewController.swift; sourceTree = "<group>"; };
+		2FA5BD9A2AF3F0F3003B907A /* SearchRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouteViewController.swift; sourceTree = "<group>"; };
 		2FA5BD9C2AF3F137003B907A /* SearchStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStepViewController.swift; sourceTree = "<group>"; };
 		2FA5BD9E2AF3F176003B907A /* MapKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitViewController.swift; sourceTree = "<group>"; };
 		2FA5BDA02AF3F1C3003B907A /* AddRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRouteViewController.swift; sourceTree = "<group>"; };
@@ -116,9 +116,9 @@
 				2FA5BDA62AF3F328003B907A /* StepDetailsViewController.swift */,
 				2FA5BDA82AF3F371003B907A /* HelpViewController.swift */,
 				2FA5BD942AF3EEFD003B907A /* VerificationViewController.swift */,
-				2FA5BD9A2AF3F0F3003B907A /* SearchRoutesViewController.swift */,
-				2FA5BD982AF3F072003B907A /* MyRoutesViewController.swift */,
 				2FA5BD9C2AF3F137003B907A /* SearchStepViewController.swift */,
+				2FA5BD9A2AF3F0F3003B907A /* SearchRouteViewController.swift */,
+				2FA5BD982AF3F072003B907A /* MyRoutesViewController.swift */,
 				2FA5BD9E2AF3F176003B907A /* MapKitViewController.swift */,
 				2FA5BD962AF3EF75003B907A /* HomePageViewController.swift */,
 				2FA795472AE16E92006EE4C5 /* Main.storyboard */,
@@ -256,7 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FA5BDA72AF3F328003B907A /* StepDetailsViewController.swift in Sources */,
-				2FA5BD9B2AF3F0F3003B907A /* SearchRoutesViewController.swift in Sources */,
+				2FA5BD9B2AF3F0F3003B907A /* SearchRouteViewController.swift in Sources */,
 				2F425CB22B1FB5BB00D3B966 /* Step.swift in Sources */,
 				2FA5BD952AF3EEFD003B907A /* VerificationViewController.swift in Sources */,
 				2FA5BD9D2AF3F137003B907A /* SearchStepViewController.swift in Sources */,
