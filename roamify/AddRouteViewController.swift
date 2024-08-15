@@ -10,10 +10,8 @@ import Firebase
 
 class AddRouteViewController: UIViewController {
     
-    @IBOutlet weak var object: UIImageView!
     
     @IBOutlet weak var howDoesLabel: UITextView!
-    
     @IBOutlet weak var routeNameTextField: UITextField!
     
      let db = Firestore.firestore()
@@ -32,7 +30,7 @@ class AddRouteViewController: UIViewController {
          
          let userRoutesCollection = db.collection("users").document(userId!).collection("routes")
          
-         // Rota belgesi oluşturuluyor
+         // Rota belgesi oluşturma
          let newRouteRef = userRoutesCollection.document()
          newRouteRef.setData(["routeName": routeName]) { error in
              if let error = error {

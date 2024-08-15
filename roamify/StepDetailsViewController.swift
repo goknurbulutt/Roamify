@@ -14,7 +14,7 @@ class StepDetailsViewController: UIViewController {
     var routeID: String?
     var stepName: String?
 
-    @IBOutlet weak var object: UIImageView!
+    
     @IBOutlet weak var stepNameTextField: UITextField!
     @IBOutlet weak var stepNoteTextField: UITextField!
    
@@ -35,7 +35,7 @@ class StepDetailsViewController: UIViewController {
     }
     
     @IBAction func doneClicked(_ sender: UIButton) {
-        // Step name ve note boş olamaz, bunları kontrol ediyoruz
+        
         guard let stepName = stepNameTextField.text, !stepName.isEmpty else {
             showAlert(message: "Step name cannot be empty.")
             return

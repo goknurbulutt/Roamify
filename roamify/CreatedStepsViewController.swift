@@ -19,7 +19,7 @@ class CreatedStepsViewController: UIViewController, UITableViewDataSource, UITab
         override func viewDidLoad() {
             super.viewDidLoad()
             
-            // Rota ismini başlık olarak ayarla
+            
             title = routeName ?? "Steps"
             
             stepTableView.dataSource = self
