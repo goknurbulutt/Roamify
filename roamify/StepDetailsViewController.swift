@@ -11,60 +11,75 @@ import Firebase
 class StepDetailsViewController: UIViewController {
     
     var stepDetails: [String: Any]?
-    
+    var routeID: String?
+    var stepName: String?
+
     @IBOutlet weak var object: UIImageView!
     @IBOutlet weak var stepNameTextField: UITextField!
     @IBOutlet weak var stepNoteTextField: UITextField!
-    
+   
     let db = Firestore.firestore()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Adım Detayları"
+        self.navigationItem.title = "Step Details"
         
+        // Eğer stepDetails varsa, stepName ve note'u doldur
         if let stepDetails = stepDetails {
             stepNameTextField.text = stepDetails["stepName"] as? String
             stepNoteTextField.text = stepDetails["note"] as? String
+        } else if let stepName = stepName {
+            // Eğer stepDetails yoksa, sadece stepName verilerini yükle
+            stepNameTextField.text = stepName
         }
     }
     
     @IBAction func doneClicked(_ sender: UIButton) {
+        // Step name ve note boş olamaz, bunları kontrol ediyoruz
         guard let stepName = stepNameTextField.text, !stepName.isEmpty else {
-            showAlert(message: "Adım adı boş olamaz.")
+            showAlert(message: "Step name cannot be empty.")
             return
         }
         
         guard let note = stepNoteTextField.text else {
-            showAlert(message: "Not boş olamaz.")
+            showAlert(message: "Note cannot be empty.")
             return
         }
 
-        let stepData: [String: Any] = ["stepName": stepName, "note": note]
-        let userId = Auth.auth().currentUser?.uid
-
-        db.collection("users").document(userId!).collection("steps").addDocument(data: stepData) { error in
-            if let error = error {
-                print("Adım detayları eklenirken hata: \(error.localizedDescription)")
-                self.showAlert(message: "Adım detayları eklenirken hata oluştu. Lütfen tekrar deneyin.")
-            } else {
-                print("Adım detayları başarıyla eklendi!")
-                self.showSuccessAlert(message: "Adım detayları başarıyla eklendi!")
+        // Eğer routeID ve stepName `Optional` değilse, doğrudan kullanabiliriz
+        if let routeID = routeID {
+            let stepData: [String: Any] = ["stepName": stepName, "note": note]
+            let userId = Auth.auth().currentUser?.uid
+            
+            // Firestore'da adımı belirli bir rotanın altına kaydetme işlemi
+            let stepRef = db.collection("users").document(userId!).collection("routes").document(routeID).collection("steps").document(stepName)
+            
+            stepRef.setData(stepData) { error in
+                if let error = error {
+                    print("Error adding step details: \(error.localizedDescription)")
+                    self.showAlert(message: "Error adding step details. Please try again.")
+                } else {
+                    print("Step details successfully added!")
+                    self.showSuccessAlert(message: "Step details successfully added!")
+                }
             }
+        } else {
+            showAlert(message: "Route ID is missing.")
         }
     }
-    
+
     func showAlert(message: String) {
-        let alert = UIAlertController(title: "Hata", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
 
     func showSuccessAlert(message: String) {
-        let alert = UIAlertController(title: "Başarılı", message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Success", message: message, preferredStyle: .alert)
         present(alert, animated: true, completion: nil)
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             alert.dismiss(animated: true, completion: {
                 self.navigateToCreatedStepsViewController()
             })

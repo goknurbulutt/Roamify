@@ -13,31 +13,31 @@ class AddMapKitViewController: UIViewController,MKMapViewDelegate, CLLocationMan
     
     @IBOutlet weak var mapView: MKMapView!
     let db = Firestore.firestore()
-        var routeName: String?
+        var routeID: String?
         var stepName: String?
 
         override func viewDidLoad() {
             super.viewDidLoad()
-            title = routeName
+            title = "Add Map"
 
-            guard let routeName = routeName, !routeName.isEmpty else {
-                print("Hata: routeName boş ")
-                
+            guard let routeID = routeID else {
+                print("Error: routeID is missing.")
                 return
             }
 
-            db.collection("routes").document(routeName).getDocument { [weak self] snapshot, error in
+            let userId = Auth.auth().currentUser?.uid
+            let stepsCollection = db.collection("users").document(userId!).collection("routes").document(routeID).collection("steps")
+            
+            stepsCollection.document(stepName ?? "").getDocument { [weak self] snapshot, error in
                 guard let self = self else { return }
 
                 if let error = error {
                     print("Error fetching map data: \(error.localizedDescription)")
-                } else {
-                    if let mapData = snapshot?.data(),
-                       let latitude = mapData["latitude"] as? Double,
-                       let longitude = mapData["longitude"] as? Double {
-                        let pinLocation = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-                        self.addPinToMap(pinLocation)
-                    }
+                } else if let mapData = snapshot?.data(),
+                          let latitude = mapData["latitude"] as? Double,
+                          let longitude = mapData["longitude"] as? Double {
+                    let pinLocation = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                    self.addPinToMap(pinLocation)
                 }
             }
 
@@ -56,63 +56,37 @@ class AddMapKitViewController: UIViewController,MKMapViewDelegate, CLLocationMan
                 let touchPoint = gestureRecognizer.location(in: mapView)
                 let coordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
                 addPinToMap(coordinate)
-
-                
                 saveStepToFirebase(coordinate)
             }
         }
 
         func saveStepToFirebase(_ coordinate: CLLocationCoordinate2D) {
-            guard let stepName = stepName, !stepName.isEmpty else {
-                showAlert(message: "Step name cannot be empty.")
-                return
-            }
+            guard let routeID = routeID, let stepName = stepName, let userId = Auth.auth().currentUser?.uid else { return }
 
             let stepData: [String: Any] = [
                 "latitude": coordinate.latitude,
-                "longitude": coordinate.longitude,
-                "stepName": stepName
+                "longitude": coordinate.longitude
             ]
-
-           
-            db.collection("routes").document(routeName ?? "").collection("steps").document(stepName).setData(stepData) { [weak self] error in
-                guard let self = self else { return }
-
+            
+            let stepRef = db.collection("users").document(userId).collection("routes").document(routeID).collection("steps").document(stepName)
+            
+            stepRef.setData(stepData) { error in
                 if let error = error {
-                    print("Error saving step data: \(error.localizedDescription)")
-                    self.showAlert(message: "Error saving step data. Please try again.")
+                    print("Error saving step: \(error.localizedDescription)")
                 } else {
-                    print("Step data saved successfully to Firestore")
-
-                   
-                    self.showStepDetails(for: coordinate)
+                    print("Step saved successfully!")
+                    self.navigateToStepDetailsViewController()
+//                    self.performSegue(withIdentifier: "toStepDetailsVC", sender: nil)
                 }
             }
         }
-    
-    func addPinToMapp(_ location: CLLocationCoordinate2D) {
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = location
-        mapView.addAnnotation(annotation)
-    }
 
-
-        func showStepDetails(for coordinate: CLLocationCoordinate2D) {
-         
-            performSegue(withIdentifier: "toStepDetailsVC", sender: ["latitude": coordinate.latitude, "longitude": coordinate.longitude, "stepName": stepName])
-        }
-
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "toStepDetailsVC", let stepDetailsVC = segue.destination as? StepDetailsViewController,
-               let stepDetails = sender as? [String: Any] {
-                stepDetailsVC.stepDetails = stepDetails
+        func navigateToStepDetailsViewController() {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let stepDetailsVC = storyboard.instantiateViewController(withIdentifier: "StepDetailsViewController") as? StepDetailsViewController {
+                stepDetailsVC.routeID = self.routeID
+                stepDetailsVC.stepName = self.stepName
+                navigationController?.pushViewController(stepDetailsVC, animated: true)
             }
-        }
-
-        func showAlert(message: String) {
-            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(okAction)
-            present(alert, animated: true, completion: nil)
         }
     }

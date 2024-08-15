@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		2F23AAF82B022FF2004D0605 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F23AAF72B022FF2004D0605 /* GoogleService-Info.plist */; };
 		2F425CB22B1FB5BB00D3B966 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F425CB12B1FB5BB00D3B966 /* Step.swift */; };
+		2F4A57AC2C6E2D66007E96CD /* HomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4A57AB2C6E2D66007E96CD /* HomePageTableViewCell.swift */; };
 		2FA5BD912AF3EE31003B907A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5BD902AF3EE31003B907A /* SignUpViewController.swift */; };
 		2FA5BD932AF3EEAF003B907A /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5BD922AF3EEAF003B907A /* PasswordResetViewController.swift */; };
 		2FA5BD952AF3EEFD003B907A /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5BD942AF3EEFD003B907A /* VerificationViewController.swift */; };
 		2FA5BD972AF3EF75003B907A /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5BD962AF3EF75003B907A /* HomePageViewController.swift */; };
 		2FA5BD992AF3F072003B907A /* MyRoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5BD982AF3F072003B907A /* MyRoutesViewController.swift */; };
-		2FA5BD9B2AF3F0F3003B907A /* SearchRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5BD9A2AF3F0F3003B907A /* SearchRouteViewController.swift */; };
 		2FA5BD9D2AF3F137003B907A /* SearchStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5BD9C2AF3F137003B907A /* SearchStepViewController.swift */; };
 		2FA5BD9F2AF3F176003B907A /* MapKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5BD9E2AF3F176003B907A /* MapKitViewController.swift */; };
 		2FA5BDA12AF3F1C3003B907A /* AddRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5BDA02AF3F1C3003B907A /* AddRouteViewController.swift */; };
@@ -35,12 +35,12 @@
 /* Begin PBXFileReference section */
 		2F23AAF72B022FF2004D0605 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F425CB12B1FB5BB00D3B966 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
+		2F4A57AB2C6E2D66007E96CD /* HomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageTableViewCell.swift; sourceTree = "<group>"; };
 		2FA5BD902AF3EE31003B907A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		2FA5BD922AF3EEAF003B907A /* PasswordResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
 		2FA5BD942AF3EEFD003B907A /* VerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewController.swift; sourceTree = "<group>"; };
 		2FA5BD962AF3EF75003B907A /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		2FA5BD982AF3F072003B907A /* MyRoutesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRoutesViewController.swift; sourceTree = "<group>"; };
-		2FA5BD9A2AF3F0F3003B907A /* SearchRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouteViewController.swift; sourceTree = "<group>"; };
 		2FA5BD9C2AF3F137003B907A /* SearchStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStepViewController.swift; sourceTree = "<group>"; };
 		2FA5BD9E2AF3F176003B907A /* MapKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitViewController.swift; sourceTree = "<group>"; };
 		2FA5BDA02AF3F1C3003B907A /* AddRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRouteViewController.swift; sourceTree = "<group>"; };
@@ -111,13 +111,12 @@
 				2FA5BD922AF3EEAF003B907A /* PasswordResetViewController.swift */,
 				2FA5BDA02AF3F1C3003B907A /* AddRouteViewController.swift */,
 				2FA5BDA22AF3F28A003B907A /* CreatedStepsViewController.swift */,
-				2FDB8D602BB364CD0054D2A9 /* StepTableViewCell.swift */,
 				2FA5BDA42AF3F2CB003B907A /* AddMapKitViewController.swift */,
 				2FA5BDA62AF3F328003B907A /* StepDetailsViewController.swift */,
+				2FDB8D602BB364CD0054D2A9 /* StepTableViewCell.swift */,
 				2FA5BDA82AF3F371003B907A /* HelpViewController.swift */,
 				2FA5BD942AF3EEFD003B907A /* VerificationViewController.swift */,
 				2FA5BD9C2AF3F137003B907A /* SearchStepViewController.swift */,
-				2FA5BD9A2AF3F0F3003B907A /* SearchRouteViewController.swift */,
 				2FA5BD982AF3F072003B907A /* MyRoutesViewController.swift */,
 				2FA5BD9E2AF3F176003B907A /* MapKitViewController.swift */,
 				2FA5BD962AF3EF75003B907A /* HomePageViewController.swift */,
@@ -126,6 +125,7 @@
 				2FA7954C2AE16E94006EE4C5 /* LaunchScreen.storyboard */,
 				2FA7954F2AE16E94006EE4C5 /* Info.plist */,
 				2F23AAF72B022FF2004D0605 /* GoogleService-Info.plist */,
+				2F4A57AB2C6E2D66007E96CD /* HomePageTableViewCell.swift */,
 			);
 			path = roamify;
 			sourceTree = "<group>";
@@ -255,8 +255,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F4A57AC2C6E2D66007E96CD /* HomePageTableViewCell.swift in Sources */,
 				2FA5BDA72AF3F328003B907A /* StepDetailsViewController.swift in Sources */,
-				2FA5BD9B2AF3F0F3003B907A /* SearchRouteViewController.swift in Sources */,
 				2F425CB22B1FB5BB00D3B966 /* Step.swift in Sources */,
 				2FA5BD952AF3EEFD003B907A /* VerificationViewController.swift in Sources */,
 				2FA5BD9D2AF3F137003B907A /* SearchStepViewController.swift in Sources */,
